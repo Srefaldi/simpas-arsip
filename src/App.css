@@ -1,3 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+
 body {
-  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background-color: #f8f9fc;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* SIDEBAR LOGIC */
+.sidebar {
+  width: 14rem !important;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.toggled {
+  width: 0 !important;
+  overflow: hidden;
+}
+
+.sidebar .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .nav-item .nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* TOPBAR */
+.topbar {
+  height: 4.375rem;
+  background-color: #fff;
+}
+
+/* STATS CARDS */
+.card-stats {
+  border: none;
+  border-left: 0.25rem solid !important;
+  border-radius: 0.35rem;
+}
+
+.border-left-primary {
+  border-left-color: #4e73df !important;
+}
+.border-left-success {
+  border-left-color: #1cc88a !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    left: -14rem;
+  }
+  .sidebar.show-mobile {
+    left: 0;
+  }
+  .content-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* TABLE STYLING */
+.btn-circle {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 2px;
+}
+
+/* Tambahkan di App.css Anda */
+
+/* Overlay Loading */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Gap antar tombol di Topbar */
+.gap-2 {
+  gap: 0.75rem !important;
+}
+
+/* Perbaikan Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    left: -14rem;
+    width: 14rem !important;
+  }
+  /* Saat isToggled true di mobile, tampilkan sidebar */
+  .sidebar.toggled {
+    left: 0 !important;
+    width: 14rem !important;
+  }
+
+  /* Area konten bergeser sedikit atau tertutup overlay saat mobile sidebar buka */
+  .content-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
 }

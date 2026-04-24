@@ -1,0 +1,262 @@
+[
+  {
+    "kode": "GR.01.01",
+    "nama": "Kebijakan Imigrasi (Lalu Lintas, Izin Tinggal, Penindakan, Kerja Sama, Intelijen, Data Elektronik)"
+  },
+  {
+    "kode": "GR.01.02",
+    "nama": "Dokumen Perjalanan Republik Indonesia (DPRI) / Blangko Paspor"
+  },
+  {
+    "kode": "GR.01.03",
+    "nama": "Pas Lintas Batas"
+  },
+  {
+    "kode": "GR.01.04",
+    "nama": "Surat Perjalanan Laksana Paspor (SPLP) Warga Negara Asing"
+  },
+  {
+    "kode": "GR.01.05",
+    "nama": "Fasilitas Keimigrasian (ABTC Smart Card)"
+  },
+  {
+    "kode": "GR.01.06",
+    "nama": "Persetujuan Visa"
+  },
+  {
+    "kode": "GR.01.07",
+    "nama": "Bebas Visa Kunjungan (BVK)"
+  },
+  {
+    "kode": "GR.01.08",
+    "nama": "Tanda Masuk dan Tanda Keluar"
+  },
+  {
+    "kode": "GR.01.09",
+    "nama": "Rekomendasi untuk mendapatkan Work and Holiday Visa"
+  },
+  {
+    "kode": "GR.01.10",
+    "nama": "Pengelolaan Dokumen Blangko DPRI, Visa, dan Perdim"
+  },
+  {
+    "kode": "GR.02.01",
+    "nama": "Izin Tinggal Kunjungan (ITK)"
+  },
+  {
+    "kode": "GR.02.02",
+    "nama": "Izin Tinggal Terbatas (ITAS)"
+  },
+  {
+    "kode": "GR.02.03",
+    "nama": "Izin Tinggal Tetap (ITAP)"
+  },
+  {
+    "kode": "GR.02.04",
+    "nama": "Alih Status (Konversi) Izin Tinggal"
+  },
+  {
+    "kode": "GR.02.05",
+    "nama": "Surat Keterangan Keimigrasian (SKIM)"
+  },
+  {
+    "kode": "GR.02.06",
+    "nama": "Skip Alur Pengembalian Data Biometrik"
+  },
+  {
+    "kode": "GR.02.07",
+    "nama": "Penelaan Status Keimigrasian"
+  },
+  {
+    "kode": "GR.02.08",
+    "nama": "Pengelolaan Dokumen Izin Tinggal Keimigrasian"
+  },
+  {
+    "kode": "GR.02.09",
+    "nama": "Permohonan Exit Permit Only (EPO)"
+  },
+  {
+    "kode": "GR.02.10",
+    "nama": "Permohonan Izin Masuk Kembali (IMK)"
+  },
+  {
+    "kode": "GR.03.01",
+    "nama": "Penyelidikan dan Penyidikan Keimigrasian"
+  },
+  {
+    "kode": "GR.03.02",
+    "nama": "Pencegahan dan Penangkalan"
+  },
+  {
+    "kode": "GR.03.03",
+    "nama": "Imigran Ilegal"
+  },
+  {
+    "kode": "GR.03.04",
+    "nama": "Pencabutan, Pembatalan, Penahan Dokumen Perjalanan"
+  },
+  {
+    "kode": "GR.03.05",
+    "nama": "Pengawasan Terhadap Warga Negara Indonesia (WNI)"
+  },
+  {
+    "kode": "GR.03.06",
+    "nama": "Pengawasan Terhadap Warga Negara Asing (WNA)"
+  },
+  {
+    "kode": "GR.03.07",
+    "nama": "Kepatuhan Internal"
+  },
+  {
+    "kode": "GR.03.08",
+    "nama": "Pendeportasian"
+  },
+  {
+    "kode": "GR.03.09",
+    "nama": "Tindakan Administrasi Keimigrasian"
+  },
+  {
+    "kode": "GR.03.10",
+    "nama": "Daftar Pencarian Orang (DPO)"
+  },
+  {
+    "kode": "GR.03.11",
+    "nama": "Pendetensian"
+  },
+  {
+    "kode": "GR.04.01",
+    "nama": "Penyelidikan dan Operasi Intelijen Keimigrasian"
+  },
+  {
+    "kode": "GR.04.02",
+    "nama": "Pengamanan Keimigrasian"
+  },
+  {
+    "kode": "GR.04.03",
+    "nama": "Kerja sama Intelijen Keimigrasian"
+  },
+  {
+    "kode": "GR.04.04",
+    "nama": "Produk Intelijen Keimigrasian"
+  },
+  {
+    "kode": "GR.05.01",
+    "nama": "Kerja sama Antar Lembaga (Dalam Negeri)"
+  },
+  {
+    "kode": "GR.05.02",
+    "nama": "Kerja sama Antar Negara"
+  },
+  {
+    "kode": "GR.05.03",
+    "nama": "Kerja sama dengan Organisasi Internasional"
+  },
+  {
+    "kode": "GR.05.04",
+    "nama": "Pembinaan Perwakilan RI di Luar Negeri"
+  },
+  {
+    "kode": "GR.06.01",
+    "nama": "Lintas Informasi internal dan Pelaporan Keimigrasian"
+  },
+  {
+    "kode": "GR.06.02",
+    "nama": "Lintas Informasi eksternal (Luar Imigrasi)"
+  },
+  {
+    "kode": "GR.06.03",
+    "nama": "Data Keimigrasian"
+  },
+  {
+    "kode": "GR.06.04",
+    "nama": "Permohonan Data Keimigrasian"
+  },
+  {
+    "kode": "GR.06.05",
+    "nama": "Perubahan Data Status Keimigrasian WNA"
+  },
+  {
+    "kode": "GR.06.06",
+    "nama": "Data Permohonan Ditolak Sistem"
+  },
+  {
+    "kode": "GR.07.01",
+    "nama": "Pencegahan dan Pengendalian"
+  },
+  {
+    "kode": "GR.07.02",
+    "nama": "Advokasi dan Investigasi Internal"
+  },
+  {
+    "kode": "GR.08.01",
+    "nama": "Pemeriksaan Imigrasi Laut"
+  },
+  {
+    "kode": "GR.08.02",
+    "nama": "Pemeriksaan Imigrasi Udara"
+  },
+  {
+    "kode": "GR.08.03",
+    "nama": "Pemeriksaan Imigrasi Darat"
+  },
+  {
+    "kode": "HK.01.01",
+    "nama": "Lembaga Tinggi Negara (Kerja Sama)"
+  },
+  {
+    "kode": "HK.01.02",
+    "nama": "Lembaga Pemerintah (Kerja Sama)"
+  },
+  {
+    "kode": "KU.01.01",
+    "nama": "Pedoman dan Administrasi Pelaksanaan Anggaran"
+  },
+  {
+    "kode": "KU.01.03",
+    "nama": "Penerimaan Negara Bukan Pajak (PNBP)"
+  },
+  {
+    "kode": "OT.01.01",
+    "nama": "Organisasi dan Tata Kerja Kementerian"
+  },
+  {
+    "kode": "OT.01.02",
+    "nama": "Organisasi dan Tata Kerja Kantor Wilayah"
+  },
+  {
+    "kode": "OT.01.03",
+    "nama": "Organisasi dan Tata Kerja Unit Pelaksana Teknis"
+  },
+  {
+    "kode": "PB.01.01",
+    "nama": "Usulan Rencana Kebutuhan BMN"
+  },
+  {
+    "kode": "PK.06.01",
+    "nama": "Penelitian Kemasyarakatan (Litmas)"
+  },
+  {
+    "kode": "PK.06.02",
+    "nama": "Pendampingan Klien Pemasyarakatan dan Keadilan Restoratif"
+  },
+  {
+    "kode": "PK.06.03",
+    "nama": "Pembimbingan Klien Pemasyarakatan"
+  },
+  {
+    "kode": "SA.04.05",
+    "nama": "Kenaikan Pangkat (KP)/Golongan"
+  },
+  {
+    "kode": "UM.01.01",
+    "nama": "Persuratan / Tata Usaha"
+  },
+  {
+    "kode": "UM.02.01",
+    "nama": "Pemindahan Arsip"
+  },
+  {
+    "kode": "UM.02.02",
+    "nama": "Pemusnahan Arsip"
+  }
+]
