@@ -7,6 +7,7 @@ const DataSurat = ({ jenis }) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [editingItem, setEditingItem] = useState(null);
+  const [newFile, setNewFile] = useState(null); // TAMBAHAN: State file baru
 
   const fetchData = async () => {
     setLoading(true);
@@ -25,6 +26,18 @@ const DataSurat = ({ jenis }) => {
   useEffect(() => {
     fetchData();
   }, [jenis]);
+
+  // TAMBAHAN: Fungsi handle file
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setNewFile({ data: reader.result, name: file.name });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleDelete = async (rowNumber) => {
     const result = await Swal.fire({
@@ -62,6 +75,7 @@ const DataSurat = ({ jenis }) => {
     });
 
     try {
+      // Mengirim data ke backend dengan payload update
       await fetch(CONFIG.URL_GAS, {
         method: "POST",
         mode: "no-cors",
@@ -72,10 +86,14 @@ const DataSurat = ({ jenis }) => {
           nomorSurat: editingItem.Nomor_Surat,
           perihal: editingItem.Perihal,
           instansi: editingItem.Instansi,
+          linkFile: editingItem.Link_File, // Mengirim link file lama
+          file: newFile ? newFile.data : null, // Kirim file jika ada yang baru
+          fileName: newFile ? newFile.name : null,
         }),
       });
       Swal.fire("Berhasil!", "Data telah diperbarui.", "success");
       setEditingItem(null);
+      setNewFile(null); // Reset state file
       fetchData();
     } catch (err) {
       Swal.fire("Error", "Gagal memperbarui data", "error");
@@ -125,7 +143,6 @@ const DataSurat = ({ jenis }) => {
                       className="spinner-border text-primary"
                       role="status"
                     ></div>
-                    <div className="mt-2 text-muted">Memproses data...</div>
                   </td>
                 </tr>
               ) : filteredSurat.length === 0 ? (
@@ -137,7 +154,6 @@ const DataSurat = ({ jenis }) => {
               ) : (
                 filteredSurat.map((item, i) => (
                   <tr key={i} className="align-middle">
-                    {/* TAMPILAN TANGGAL HANYA TGL-BLN-THN */}
                     <td>
                       {item.Tanggal
                         ? new Date(item.Tanggal).toLocaleDateString("id-ID", {
@@ -163,20 +179,17 @@ const DataSurat = ({ jenis }) => {
                           target="_blank"
                           rel="noreferrer"
                           className="btn btn-info btn-circle btn-sm text-white"
-                          title="Lihat PDF"
                         >
                           <i className="fas fa-eye"></i>
                         </a>
                         <button
                           className="btn btn-warning btn-circle btn-sm text-white"
-                          title="Edit"
                           onClick={() => setEditingItem(item)}
                         >
                           <i className="fas fa-edit"></i>
                         </button>
                         <button
                           className="btn btn-danger btn-circle btn-sm"
-                          title="Hapus"
                           onClick={() => handleDelete(item.rowNumber)}
                         >
                           <i className="fas fa-trash"></i>
@@ -191,7 +204,6 @@ const DataSurat = ({ jenis }) => {
         </div>
       </div>
 
-      {/* MODAL EDIT */}
       {editingItem && (
         <div
           className="modal d-block animate__animated animate__fadeIn"
@@ -260,12 +272,31 @@ const DataSurat = ({ jenis }) => {
                       required
                     />
                   </div>
+                  {/* TAMBAHAN: Input Ganti File */}
+                  <div className="mb-3">
+                    <label className="form-label small fw-bold text-uppercase text-muted">
+                      Ganti File (Opsional)
+                    </label>
+                    <input
+                      type="file"
+                      className="form-control border-0 bg-light"
+                      onChange={handleFileChange}
+                    />
+                    <small className="text-muted">
+                      {newFile
+                        ? `File baru: ${newFile.name}`
+                        : "Biarkan kosong jika tidak ingin mengubah file"}
+                    </small>
+                  </div>
                 </div>
                 <div className="modal-footer border-top-0 p-3">
                   <button
                     type="button"
                     className="btn btn-light px-4"
-                    onClick={() => setEditingItem(null)}
+                    onClick={() => {
+                      setEditingItem(null);
+                      setNewFile(null);
+                    }}
                   >
                     Batal
                   </button>

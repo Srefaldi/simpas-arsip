@@ -29,7 +29,14 @@ const Dashboard = ({ setIsLogin }) => {
   const [stats, setStats] = useState({ masuk: 0, keluar: 0 });
   const [isToggled, setIsToggled] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  useEffect(() => {
+    const savedMenu = localStorage.getItem("menu");
+    if (savedMenu) setActiveMenu(savedMenu);
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem("menu", activeMenu);
+  }, [activeMenu]);
   const fetchStats = async () => {
     setIsRefreshing(true); // Mulai loading
     try {
@@ -205,7 +212,10 @@ const Dashboard = ({ setIsLogin }) => {
             </button>
             <button
               className="btn btn-sm btn-danger rounded-pill px-3 shadow-sm"
-              onClick={() => setIsLogin(false)}
+              onClick={() => {
+                localStorage.removeItem("isLogin");
+                setIsLogin(false);
+              }}
             >
               <i className="fas fa-sign-out-alt fa-sm mr-2"></i>Logout
             </button>

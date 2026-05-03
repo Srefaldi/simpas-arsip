@@ -1,24 +1,41 @@
-import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "./App.css"; // Tambahkan file CSS di bawah
 
 function App() {
-  const [page, setPage] = useState("landing");
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(null); // 🔥 bukan false lagi
 
-  if (isLogin) {
-    return <Dashboard setIsLogin={setIsLogin} />;
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLogin");
+    setIsLogin(loginStatus === "true");
+  }, []);
+
+  // 🔥 tahan render dulu sampai cek selesai
+  if (isLogin === null) {
+    return <div>Loading...</div>;
   }
 
-  if (page === "login") {
-    return <Login setIsLogin={setIsLogin} setPage={setPage} />;
-  }
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
 
-  return <Landing setPage={setPage} />;
+      <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
+
+      <Route
+        path="/dashboard/*"
+        element={
+          isLogin ? (
+            <Dashboard setIsLogin={setIsLogin} />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+    </Routes>
+  );
 }
 
 export default App;

@@ -1,19 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import InputSurat from "./InputSuratMasuk";
 
-const Landing = ({ setPage }) => {
+const Landing = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-light min-vh-100">
       {/* NAVBAR */}
       <nav className="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
         <div className="container">
           <span className="navbar-brand fw-bold text-primary">
-            📁 Arsip Digital
+            Arsip Digital
           </span>
 
           <button
             className="btn btn-primary rounded-pill px-4"
-            onClick={() => setPage("login")}
+            onClick={() => navigate("/login")}
           >
             Login Admin
           </button>
