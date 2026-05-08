@@ -11,7 +11,7 @@ export default function DataSurat() {
   const location = useLocation();
   const navigate = useNavigate();
   const query = new URLSearchParams(location.search);
-const kategoriFilter = query.get("kategori");
+  const kategoriFilter = query.get("kategori");
 
   const jenis = location.pathname.includes("masuk")
     ? "SuratMasuk"
@@ -19,6 +19,9 @@ const kategoriFilter = query.get("kategori");
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const dataPerPage = 10;
 
   const fetchData = async () => {
     setLoading(true);
@@ -66,6 +69,17 @@ const kategoriFilter = query.get("kategori");
   ? data.filter((i) => i.Kategori_Surat === kategoriFilter)
   : data;
   
+  const lastIndex = currentPage * dataPerPage;
+const firstIndex = lastIndex - dataPerPage;
+
+const currentData = filteredData.slice(firstIndex, lastIndex);
+
+const totalPages = Math.ceil(filteredData.length / dataPerPage);
+
+useEffect(() => {
+  setCurrentPage(1);
+}, [kategoriFilter, jenis]);
+
   return (
   <DashboardLayout onRefresh={fetchData}>
     <div className="data-wrapper">
@@ -129,9 +143,9 @@ const kategoriFilter = query.get("kategori");
                 </td>
               </tr>
             ) : (
-              filteredData.map((item, i) => (
+              currentData.map((item, i) => (
                 <tr key={i}>
-                  <td>{i + 1}</td>
+                  <td>{firstIndex + i + 1}</td>
 
                   <td className="nomor">
                     {item.Nomor_Surat || "-"}
@@ -194,6 +208,31 @@ const kategoriFilter = query.get("kategori");
             )}
           </tbody>
         </table>
+        <div className="pagination">
+  <button
+    disabled={currentPage === 1}
+    onClick={() => setCurrentPage(currentPage - 1)}
+  >
+    Prev
+  </button>
+
+  {[...Array(totalPages)].map((_, i) => (
+    <button
+      key={i}
+      className={currentPage === i + 1 ? "active-page" : ""}
+      onClick={() => setCurrentPage(i + 1)}
+    >
+      {i + 1}
+    </button>
+  ))}
+
+  <button
+    disabled={currentPage === totalPages}
+    onClick={() => setCurrentPage(currentPage + 1)}
+  >
+    Next
+  </button>
+</div>
       </div>
 
     </div>

@@ -111,7 +111,12 @@ export default function SuratKeluar() {
         showConfirmButton: false,
       });
 
-      navigate("/");
+      const isAdmin = localStorage.getItem("isAdmin");
+      if (isAdmin === "true") {
+        navigate("/data/keluar");
+      } else {
+        navigate("/");
+      }
 
     } catch (err) {
       Swal.fire("Error", "Gagal kirim data", "error");
@@ -149,10 +154,14 @@ export default function SuratKeluar() {
 
             <div className="upload-box">
               <p>Upload Dokumen</p>
-              <input type="file" onChange={handleFile} required />
-            </div>
-
-            <div className="form-full">
+              <div className="file-input">
+                <input
+                  type="file"
+                  onChange={handleFile}
+                  required
+                />
+              </div>
+              <div className="form-full">
               <button type="submit" className="btn-primary full">
                 Simpan Arsip
               </button>
@@ -172,6 +181,7 @@ export default function SuratKeluar() {
               >
                 Batal
               </button>
+            </div>
             </div>
 
           </div>

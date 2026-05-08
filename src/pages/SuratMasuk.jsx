@@ -117,23 +117,28 @@ export default function SuratMasuk() {
       );
 
       await Swal.fire({
-  icon: "success",
-  title: "Berhasil",
-  text: "Surat masuk berhasil disimpan!",
-  timer: 1500,
-  showConfirmButton: false,
-});
+        icon: "success",
+        title: "Berhasil",
+        text: "Surat masuk berhasil disimpan!",
+        timer: 1500,
+        showConfirmButton: false,
+      });
 
-setForm({
-  klasifikasi: "",
-  kategoriSurat: "",
-  nomor: "",
-  instansi: "",
-  perihal: "",
-  file: null,
-});
+      setForm({
+        klasifikasi: "",
+        kategoriSurat: "",
+        nomor: "",
+        instansi: "",
+        perihal: "",
+        file: null,
+      });
 
-navigate("/");
+      const isAdmin = localStorage.getItem("isAdmin");
+      if (isAdmin === "true") {
+        navigate("/data/masuk");
+      } else {
+        navigate("/");
+      }
 
     } catch (err) {
       Swal.fire("Error", "Gagal kirim data", "error");
@@ -207,14 +212,14 @@ navigate("/");
             <div className="upload-box">
               <p>Upload Dokumen</p>
 
-              <input
-                type="file"
-                onChange={handleFile}
-                required
-              />
-            </div>
-
-            <div className="form-full">
+              <div className="file-input">
+                <input
+                  type="file"
+                  onChange={handleFile}
+                  required
+                />
+              </div>
+              <div className="form-full">
 
               <button
                 type="submit"
@@ -238,9 +243,8 @@ navigate("/");
               >
                 Batal
               </button>
-
             </div>
-
+            </div>
           </div>
         </form>
       </div>
