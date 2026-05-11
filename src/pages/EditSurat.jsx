@@ -128,6 +128,7 @@ export default function EditSurat() {
                   <option value="BKD">BKD</option>
                   <option value="BKA">BKA</option>
                   <option value="TU">TU</option>
+                  <option value="Kepegawaian">Kepegawaian</option>
                 </select>
               </>
             )}

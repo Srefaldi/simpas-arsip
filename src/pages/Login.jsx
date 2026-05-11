@@ -77,6 +77,9 @@ export default function Login() {
           Batal
         </button>
       </div>
+      <footer className="footer">
+          © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+        </footer>
     </div>
   );
 }

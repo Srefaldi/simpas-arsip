@@ -187,6 +187,9 @@ export default function SuratKeluar() {
           </div>
         </form>
       </div>
+      <footer className="footer">
+        © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+      </footer>
     </div>
   );
 }

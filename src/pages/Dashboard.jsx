@@ -25,6 +25,7 @@ export default function Dashboard() {
   BKD: 0,
   BKA: 0,
   TU: 0,
+  Kepegawaian: 0
 });
 
   const loadData = async () => {
@@ -114,7 +115,7 @@ export default function Dashboard() {
       <div className="chart-box">
         <h3>Grafik Aktivitas</h3>
 
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={220}>
           <LineChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="tanggal" />
@@ -139,6 +140,9 @@ export default function Dashboard() {
             />
           </LineChart>
         </ResponsiveContainer>
+          <footer className="footer">
+            © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+          </footer>
       </div>
     </DashboardLayout>
   );

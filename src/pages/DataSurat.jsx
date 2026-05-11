@@ -209,32 +209,34 @@ useEffect(() => {
           </tbody>
         </table>
         <div className="pagination">
-  <button
-    disabled={currentPage === 1}
-    onClick={() => setCurrentPage(currentPage - 1)}
-  >
-    Prev
-  </button>
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            Prev
+          </button>
 
-  {[...Array(totalPages)].map((_, i) => (
-    <button
-      key={i}
-      className={currentPage === i + 1 ? "active-page" : ""}
-      onClick={() => setCurrentPage(i + 1)}
-    >
-      {i + 1}
-    </button>
-  ))}
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              className={currentPage === i + 1 ? "active-page" : ""}
+              onClick={() => setCurrentPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
 
-  <button
-    disabled={currentPage === totalPages}
-    onClick={() => setCurrentPage(currentPage + 1)}
-  >
-    Next
-  </button>
-</div>
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
-
+      <footer className="footer">
+        © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+      </footer>
     </div>
   </DashboardLayout>
 );

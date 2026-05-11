@@ -184,6 +184,7 @@ export default function SuratMasuk() {
                 <option value="BKD">BKD</option>
                 <option value="BKA">BKA</option>
                 <option value="TU">TU</option>
+                <option value="Kepegawaian">Kepegawaian</option>
               </select>
 
               <label>Nomor Surat</label>
@@ -248,6 +249,9 @@ export default function SuratMasuk() {
           </div>
         </form>
       </div>
+      <footer className="footer">
+        © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+      </footer>
     </div>
   );
 }

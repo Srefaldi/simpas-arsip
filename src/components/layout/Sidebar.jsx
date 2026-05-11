@@ -15,6 +15,7 @@ export default function Sidebar() {
   { name: "BKD", path: "/data/masuk?kategori=BKD" },
   { name: "BKA", path: "/data/masuk?kategori=BKA" },
   { name: "TU", path: "/data/masuk?kategori=TU" },
+  { name: "Kepegawaian", path: "/data/masuk?kategori=Kepegawaian" },
 ];
 
   return (

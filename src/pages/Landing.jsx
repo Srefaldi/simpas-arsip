@@ -3,6 +3,10 @@ export default function Landing() {
     <div>
       {/* HERO */}
       <div className="hero">
+        <div className="hero-logo">
+          <img src="/kemenimipas.png" alt="Kemenimipas" />
+          <img src="/bapas.png" alt="Bapas" />
+        </div>
         <h1>Sistem Arsip Surat Digital</h1>
         <p>Kelola surat masuk & keluar secara cepat, aman, dan terstruktur</p>
       </div>
@@ -28,6 +32,9 @@ export default function Landing() {
             🔐 Login Admin
           </a>
         </div>
+        <footer className="footer">
+          © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+        </footer>
       </div>
     </div>
   );
