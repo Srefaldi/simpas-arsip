@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from "react";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbydrpdtBLlx8_RWMH9w3E12onEi_mr_Im2HCehkxEe6KKQGgc2aEx40lq_iz2ID00PONQ/exec";
+  "https://script.google.com/macros/s/AKfycbxNZ8HTAnILDTp2LRIlTDS9lvAVBbxutiUKlu6dBzU3oszUGJT9Ui5JCFLjgMVV6Fnmcw/exec";
 
 export default function Dashboard() {
   const [chartData, setChartData] = useState([]);
@@ -21,12 +21,13 @@ export default function Dashboard() {
   const [keluar, setKeluar] = useState(0);
   const [loading, setLoading] = useState(true);
   const [kategoriCount, setKategoriCount] = useState({
-  PK: 0,
-  BKD: 0,
-  BKA: 0,
-  TU: 0,
-  Kepegawaian: 0
-});
+    PK: 0,
+    BKD: 0,
+    BKA: 0,
+    TU: 0,
+    Kepegawaian: 0,
+    Keuangan: 0,
+  });
 
   const loadData = async () => {
     try {
@@ -140,9 +141,9 @@ export default function Dashboard() {
             />
           </LineChart>
         </ResponsiveContainer>
-          <footer className="footer">
-            © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
-          </footer>
+        <footer className="footer">
+          © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+        </footer>
       </div>
     </DashboardLayout>
   );

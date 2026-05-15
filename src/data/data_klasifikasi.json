@@ -1,7 +1,7 @@
 [
   {
     "kode": "GR.01.01",
-    "nama": "Kebijakan Imigrasi (Lalu Lintas, Izin Tinggal, Penindakan, Kerja Sama, Intelijen, Data Elektronik)"
+    "nama": "Kebijakan Imigrasi Meliputi Kebijakan di Bidang: Lalu Lintas Keimigrasian, Izin Tinggal Orang Asing dan Status Keimigrasian, Penindakan Keimigrasian and Pendetensian, Kerja Sama Keimigrasian, Pembinaan Bidang Keimigrasian, Intelijen Keimigrasian, Lintas Informasi Keimigrasian, dan Data Elektronik Personal Keimigrasian"
   },
   {
     "kode": "GR.01.02",
@@ -17,7 +17,7 @@
   },
   {
     "kode": "GR.01.05",
-    "nama": "Fasilitas Keimigrasian (ABTC Smart Card)"
+    "nama": "Fasilitas Keimigrasian antara lain ABTC (Asia Pacific Economic Corporation Business Travel Card) Smart Card"
   },
   {
     "kode": "GR.01.06",
@@ -53,7 +53,7 @@
   },
   {
     "kode": "GR.02.04",
-    "nama": "Alih Status (Konversi) Izin Tinggal"
+    "nama": "Alih Status (Konversi) Izin Tinggal Termasuk Penolakannya"
   },
   {
     "kode": "GR.02.05",
@@ -93,7 +93,7 @@
   },
   {
     "kode": "GR.03.04",
-    "nama": "Pencabutan, Pembatalan, Penahan Dokumen Perjalanan"
+    "nama": "Pencabutan, Pembatalan, Penahan Dokumen Perjalanan dan Dokumen Keimigrasian termasuk Siar Papor yang dibatalkan"
   },
   {
     "kode": "GR.03.05",
@@ -157,11 +157,11 @@
   },
   {
     "kode": "GR.06.01",
-    "nama": "Lintas Informasi internal dan Pelaporan Keimigrasian"
+    "nama": "Lintas Informasi internal termasuk Tukar Menukar Informasi dan Pelaporan Kegiatan Keimigrasian"
   },
   {
     "kode": "GR.06.02",
-    "nama": "Lintas Informasi eksternal (Luar Imigrasi)"
+    "nama": "Lintas Informasi eksternal termasuk Pertukaran Informasi dengan Institusi di Luar Imigrasi"
   },
   {
     "kode": "GR.06.03",
@@ -201,55 +201,1083 @@
   },
   {
     "kode": "HK.01.01",
-    "nama": "Lembaga Tinggi Negara (Kerja Sama)"
+    "nama": "Lembaga Tinggi Negara (dalam negeri dan luar negeri)"
   },
   {
     "kode": "HK.01.02",
-    "nama": "Lembaga Pemerintah (Kerja Sama)"
+    "nama": "Lembaga Pemerintah (dalam negeri dan luar negeri)"
+  },
+  {
+    "kode": "HK.01.03",
+    "nama": "Organisasi Kemasyarakatan/Lembaga Swasta (dalam negeri dan luar negeri)"
+  },
+  {
+    "kode": "HK.01.04",
+    "nama": "Perguruan Tinggi/Sekolah (dalam negeri dan luar negeri)"
+  },
+  {
+    "kode": "HK.01.05",
+    "nama": "Penyusunan Dokumen Kerja Sama (dalam negeri dan luar negeri)"
+  },
+  {
+    "kode": "HK.01.06",
+    "nama": "Permintaan dan Pengelolaan Data Kerja Sama (dalam negeri dan luar negeri)"
+  },
+  {
+    "kode": "HK.01.07",
+    "nama": "Audiensi/Kunjungan (Kementerian/Lembaga, Organisasi Kemasyarakatan/Lembaga Swasta, Organisasi Internasional/Organisasi Internasional Non Pemerintah)"
+  },
+  {
+    "kode": "HK.01.08",
+    "nama": "Pemantauan dan Evaluasi"
+  },
+  {
+    "kode": "HK.01.09",
+    "nama": "Administrasi Kerja Sama"
+  },
+  {
+    "kode": "HK.02.01",
+    "nama": "Advokasi Hukum Litigasi"
+  },
+  {
+    "kode": "HK.02.02",
+    "nama": "Advokasi Hukum Non Litigasi"
+  },
+  {
+    "kode": "HK.02.03",
+    "nama": "Pengaduan Hukum"
+  },
+  {
+    "kode": "HK.02.04",
+    "nama": "Bantuan Hukum"
+  },
+  {
+    "kode": "HK.02.05",
+    "nama": "Layanan Aspirasi dan Pengaduan Online Rakyat (LAPOR)"
+  },
+  {
+    "kode": "HK.02.06",
+    "nama": "Sistem Informasi Pelayanan Publik"
+  },
+  {
+    "kode": "HK.03.01",
+    "nama": "Penyusunan Rencana Pembentukan Perundang-undangan"
+  },
+  {
+    "kode": "HK.03.02",
+    "nama": "Penyusunan, Penetapan dan Pengundangan"
   },
   {
     "kode": "KU.01.01",
-    "nama": "Pedoman dan Administrasi Pelaksanaan Anggaran"
+    "nama": "Pedoman, Petunjuk dan Administrasi Pelaksanaan Anggaran"
+  },
+  {
+    "kode": "KU.01.02",
+    "nama": "Daftar Isian Pelaksanaan Anggaran"
   },
   {
     "kode": "KU.01.03",
     "nama": "Penerimaan Negara Bukan Pajak (PNBP)"
   },
   {
+    "kode": "KU.02.01",
+    "nama": "Pedoman dan Petunjuk Administrasi Keuangan"
+  },
+  {
+    "kode": "KU.02.02",
+    "nama": "Penatausahaan Hibah"
+  },
+  {
+    "kode": "KU.02.03",
+    "nama": "Pejabat Perbendaharaan Negara"
+  },
+  {
+    "kode": "KU.02.04",
+    "nama": "Penyelesaian Keuangan Negara"
+  },
+  {
+    "kode": "KU.02.05",
+    "nama": "Penatausahaan Rekening Pemerintah"
+  },
+  {
+    "kode": "KU.03.01",
+    "nama": "Dokumen Pertanggungjawaban Belanja"
+  },
+  {
+    "kode": "KU.03.02",
+    "nama": "Buku kas Umum dan Buku pembantu"
+  },
+  {
+    "kode": "KU.03.03",
+    "nama": "Laporan Pertanggungjawaban(LPJ) Bendahara Pengeluaran"
+  },
+  {
+    "kode": "KU.03.04",
+    "nama": "LPJ Bendahara Penerimaan"
+  },
+  {
+    "kode": "KU.03.05",
+    "nama": "Penerimaan Negara Pajak"
+  },
+  {
+    "kode": "KU.04.01",
+    "nama": "Laporan Keuangan"
+  },
+  {
+    "kode": "KU.04.02",
+    "nama": "Rekonsiliasi dan Data Laporan Keuangan"
+  },
+  {
+    "kode": "KU.04.03",
+    "nama": "Penyelesaian Tindak Lanjut Temuan Hasil Pemeriksaan BPK dan Inspektorat Jenderal"
+  },
+  {
+    "kode": "LT.01.01",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Pembentukan Regulasi"
+  },
+  {
+    "kode": "LT.01.02",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Penegakan Hukum"
+  },
+  {
+    "kode": "LT.01.03",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Administrasi Fasilitatif"
+  },
+  {
+    "kode": "LT.01.04",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Sumber Daya Manusia"
+  },
+  {
+    "kode": "LT.01.05",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Pengawasan"
+  },
+  {
+    "kode": "LT.01.06",
+    "nama": "Kelompok Substansi Analisis Data dan Informasi di bidang Keimigrasian dan Pemasyarakatan"
+  },
+  {
+    "kode": "LT.01.07",
+    "nama": "Kelompok Substansi Penelitian dan Pengembangan Teknologi dan Sistem Informasi Keimigrasian dan Permasyarakatan"
+  },
+  {
     "kode": "OT.01.01",
-    "nama": "Organisasi dan Tata Kerja Kementerian"
+    "nama": "Oganisasi dan Tata Kerja Kementerian"
   },
   {
     "kode": "OT.01.02",
-    "nama": "Organisasi dan Tata Kerja Kantor Wilayah"
+    "nama": "Oganisasi dan Tata Kerja Kantor Wilayah"
   },
   {
     "kode": "OT.01.03",
-    "nama": "Organisasi dan Tata Kerja Unit Pelaksana Teknis"
+    "nama": "Oganisasi dan Tata Kerja Unit Pelaksana Teknis"
+  },
+  {
+    "kode": "OT.01.04",
+    "nama": "Evaluasi Kelembagaan"
+  },
+  {
+    "kode": "OT.02.01",
+    "nama": "Standarisasi Sarana Kerja"
+  },
+  {
+    "kode": "OT.02.02",
+    "nama": "Sistem, Prosedur dan Metode Kerja"
+  },
+  {
+    "kode": "OT.02.03",
+    "nama": "Analisa dan Uraian Jabatan"
+  },
+  {
+    "kode": "OT.03.01",
+    "nama": "Penilaian Mandiri Pelaksanaan Reformasi Birokrasi (PMPRB)"
+  },
+  {
+    "kode": "OT.03.02",
+    "nama": "Zona Integritas"
+  },
+  {
+    "kode": "OT.03.03",
+    "nama": "Evaluasi Reformasi Birokrasi"
+  },
+  {
+    "kode": "OT.04",
+    "nama": "Instruksi Menteri"
   },
   {
     "kode": "PB.01.01",
     "nama": "Usulan Rencana Kebutuhan BMN"
   },
   {
+    "kode": "PB.01.02",
+    "nama": "Rencana Kebutuhan BMN Kementrian"
+  },
+  {
+    "kode": "PB.01.03",
+    "nama": "Hasil Analisis Kebutuhan BMN"
+  },
+  {
+    "kode": "PB.01.04",
+    "nama": "Rencana Kebutuhan Aset Berwujud"
+  },
+  {
+    "kode": "PB.01.05",
+    "nama": "Rencana Kebutuhan Aset Tak Berwujud"
+  },
+  {
+    "kode": "PB.02.01",
+    "nama": "Pengelolaan Pengadaan Barang/Jasa"
+  },
+  {
+    "kode": "PB.02.02",
+    "nama": "Pengelolaan layanan pengadaan secara elektronik dan data informasi pengadaan berang/jasa"
+  },
+  {
+    "kode": "PB.02.03",
+    "nama": "Pembinaan, Bimbingan, Pendampingan, dan Konsultasi Teknis Pengadaan Barang/Jasa"
+  },
+  {
+    "kode": "PB.02.04",
+    "nama": "Tindak Lanjut Hasil Pemeriksaan"
+  },
+  {
+    "kode": "PB.02.05",
+    "nama": "Laporan Pengadaan Barang/Jasa"
+  },
+  {
+    "kode": "PB.02.06",
+    "nama": "Telaahan Permasalahan Pengadaan Barang/Jasa"
+  },
+  {
+    "kode": "PB.02.07",
+    "nama": "Unit Kerja Pengadaan Barang dan Jasa (UKPBJ)"
+  },
+  {
+    "kode": "PB.02.08",
+    "nama": "Pendistribusian Barang Milik Negara"
+  },
+  {
+    "kode": "PB.03.01",
+    "nama": "Penggunaan Barang Milik Negara (BMN)"
+  },
+  {
+    "kode": "PB.03.02",
+    "nama": "Pemanfaatan Barang Milik Negara"
+  },
+  {
+    "kode": "PB.03.03",
+    "nama": "Pengamanan dan Pemeliharaan"
+  },
+  {
+    "kode": "PB.03.04",
+    "nama": "Rumah Negara"
+  },
+  {
+    "kode": "PB.04.01",
+    "nama": "Pencatatan Barang Miliki Negara"
+  },
+  {
+    "kode": "PB.04.02",
+    "nama": "Inventarisasi"
+  },
+  {
+    "kode": "PB.04.03",
+    "nama": "Opname Fisik"
+  },
+  {
+    "kode": "PB.04.04",
+    "nama": "Rekonsiliasi data Barang Milik Negara"
+  },
+  {
+    "kode": "PB.04.05",
+    "nama": "Pengawasan dan Pengendalian BMN"
+  },
+  {
+    "kode": "PB.04.06",
+    "nama": "Laporan Barang Milik Negara"
+  },
+  {
+    "kode": "PB.05.01",
+    "nama": "Penjualan"
+  },
+  {
+    "kode": "PB.05.02",
+    "nama": "Tukar Menukar"
+  },
+  {
+    "kode": "PB.05.03",
+    "nama": "HIbah"
+  },
+  {
+    "kode": "PB.05.04",
+    "nama": "Pemusnahan"
+  },
+  {
+    "kode": "PB.05.05",
+    "nama": "Penghapusan"
+  },
+  {
+    "kode": "PK.01.01",
+    "nama": "Registrasi Tahanan dan Anak"
+  },
+  {
+    "kode": "PK.01.02",
+    "nama": "Registrasi Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.01.03",
+    "nama": "Registrasi Klien Pemasyarakatan"
+  },
+  {
+    "kode": "PK.01.04",
+    "nama": "Registrasi Titipan"
+  },
+  {
+    "kode": "PK.01.05",
+    "nama": "Administrasi Pelayanan Tahanan di Luar Rutan"
+  },
+  {
+    "kode": "PK.01.06",
+    "nama": "Peminjaman/Bon Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.02.01",
+    "nama": "Admisi Orientasi"
+  },
+  {
+    "kode": "PK.02.02",
+    "nama": "Asesmen dan Klasifikasi"
+  },
+  {
+    "kode": "PK.03.01",
+    "nama": "Mutasi Tahanan dan Anak"
+  },
+  {
+    "kode": "PK.03.02",
+    "nama": "Mutasi Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.03.03",
+    "nama": "Mutasi Klien Pemasyarakatan"
+  },
+  {
+    "kode": "PK.04.01",
+    "nama": "Layanan Kepribadian"
+  },
+  {
+    "kode": "PK.04.02",
+    "nama": "Layanan Kemandirian"
+  },
+  {
+    "kode": "PK.04.03",
+    "nama": "Layanan Perlindungan Hukum Tahanan dan Anak"
+  },
+  {
+    "kode": "PK.04.04",
+    "nama": "Pengeluaran Tahanan dan Anak"
+  },
+  {
+    "kode": "PK.04.05",
+    "nama": "Tim Pertimbangan Pemasyarakatan Pelayanan Tanahan dan Anak"
+  },
+  {
+    "kode": "PK.05.01",
+    "nama": "Pembinaan Kepribadian"
+  },
+  {
+    "kode": "PK.05.02",
+    "nama": "Pembinaan Kemandirian"
+  },
+  {
+    "kode": "PK.05.03",
+    "nama": "Asimilasi dan Integrasi Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.05.04",
+    "nama": "Pengeluaran Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.05.05",
+    "nama": "Tim Pertimbangan Pemasyarakatan Pembinaan Narapidana dan Anak Binaan"
+  },
+  {
     "kode": "PK.06.01",
-    "nama": "Penelitian Kemasyarakatan (Litmas)"
+    "nama": "Penelitian Kemasyarakatan"
   },
   {
     "kode": "PK.06.02",
-    "nama": "Pendampingan Klien Pemasyarakatan dan Keadilan Restoratif"
+    "nama": "Pendampingan Klien Pemasyarakatan dan Upaya Keadilan Restoratif Pemasyarakatan"
   },
   {
     "kode": "PK.06.03",
     "nama": "Pembimbingan Klien Pemasyarakatan"
   },
   {
+    "kode": "PK.06.04",
+    "nama": "Pengawasan Klien Pemasyarakatan"
+  },
+  {
+    "kode": "PK.06.05",
+    "nama": "Tim Pertimbangan Pemasyarakatan Pembimbingan Klien Pemasyarakatan"
+  },
+  {
+    "kode": "PK.07.01",
+    "nama": "Perawatan Kesehatan Dasar"
+  },
+  {
+    "kode": "PK.07.02",
+    "nama": "Perawatan Kesehatan Lanjutan"
+  },
+  {
+    "kode": "PK.07.03",
+    "nama": "Perawatan Kesehatan Khusus"
+  },
+  {
+    "kode": "PK.07.04",
+    "nama": "Kebutuhan Dasar dan Kesehatan Lingkungan"
+  },
+  {
+    "kode": "PK.08.01",
+    "nama": "Intelijen Pemasyarakatan"
+  },
+  {
+    "kode": "PK.08.02",
+    "nama": "Pencegahan Gangguan Keamanan dan Pemeliharaan Keamanan"
+  },
+  {
+    "kode": "PK.08.03",
+    "nama": "Penindakan dan Pemulihan"
+  },
+  {
+    "kode": "PK.09.01",
+    "nama": "Pencegahan dan Pengendalian"
+  },
+  {
+    "kode": "PK.09.02",
+    "nama": "Fasilitasi Advokasi dan Investigasi Internal"
+  },
+  {
+    "kode": "PK.10.01",
+    "nama": "Pengelolaan Data dan Information"
+  },
+  {
+    "kode": "PK.10.02",
+    "nama": "Statistik Tahanan dan Anak"
+  },
+  {
+    "kode": "PK.10.03",
+    "nama": "Statistik Narapidana dan Anak Binaan"
+  },
+  {
+    "kode": "PK.10.04",
+    "nama": "Statistik Klien Pemasyarakatan"
+  },
+  {
+    "kode": "PK.10.05",
+    "nama": "Statistik Titipan"
+  },
+  {
+    "kode": "PR.01.01",
+    "nama": "Rencana Strategis"
+  },
+  {
+    "kode": "PR.01.02",
+    "nama": "Trilateral Meeting"
+  },
+  {
+    "kode": "PR.01.03",
+    "nama": "Rencana Kerja"
+  },
+  {
+    "kode": "PR.01.04",
+    "nama": "Rencana Kerja dan anggaran"
+  },
+  {
+    "kode": "PR.02.01",
+    "nama": "Evaluasi Unit Utama"
+  },
+  {
+    "kode": "PR.02.02",
+    "nama": "Evaluasi Kantor Wilayah"
+  },
+  {
+    "kode": "PR.03",
+    "nama": "Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP)"
+  },
+  {
+    "kode": "PR.04.01",
+    "nama": "Laporan Tetap"
+  },
+  {
+    "kode": "PR.04.02",
+    "nama": "Laporan Insidentil"
+  },
+  {
+    "kode": "PR.05.01",
+    "nama": "Rapat Kerja Dengan Dewan Perwakilan Rakyat (DPR)"
+  },
+  {
+    "kode": "PR.05.02",
+    "nama": "Rapat Kerja Tingkat Kementerian"
+  },
+  {
+    "kode": "PR.05.03",
+    "nama": "Rapat Kerja Tingkat Unit Utama"
+  },
+  {
+    "kode": "PR.05.04",
+    "nama": "Rapat Kerja Tingkat Kantor Wilayah"
+  },
+  {
+    "kode": "PR.05.05",
+    "nama": "Rapat Pimpinan dan Rapat Staf"
+  },
+  {
+    "kode": "PR.06.01",
+    "nama": "Sidang Kabinet Terbatas"
+  },
+  {
+    "kode": "PR.06.02",
+    "nama": "Sidang Kabinet paripurna"
+  },
+  {
+    "kode": "PW.01.01",
+    "nama": "Kebijakan Pengawasan"
+  },
+  {
+    "kode": "PW.01.02",
+    "nama": "Perjanjian Kerja"
+  },
+  {
+    "kode": "PW.01.03",
+    "nama": "Program Kerja Pengawasan Tahunan (PKPT)"
+  },
+  {
+    "kode": "PW.01.04",
+    "nama": "Program Kerja Administrasi Umum (PKAU)"
+  },
+  {
+    "kode": "PW.01.05",
+    "nama": "Rapat Koordinasi Pengawasan (RAKORWAS)"
+  },
+  {
+    "kode": "PW.01.06",
+    "nama": "Ikhtisar Hasil Pengawasan"
+  },
+  {
+    "kode": "PW.02.01",
+    "nama": "Audit Kinerja & Informasi, Reviu dan Evaluasi"
+  },
+  {
+    "kode": "PW.02.02",
+    "nama": "Audit Tujuan Tertentu / Khusus"
+  },
+  {
+    "kode": "PW.02.03",
+    "nama": "Pemantauan / Monitoring"
+  },
+  {
+    "kode": "PW.02.04",
+    "nama": "Pengawasan Lainnya, Pendampingan, Sosialisasi, Perjanjian Kerja Sama"
+  },
+  {
+    "kode": "PW.03.01",
+    "nama": "Laporan Hasil Audit Kinerja (LHA/LHP), Informasi Data Pendukung Pemeriksaan Dalam Negeri dan Luar Negeri"
+  },
+  {
+    "kode": "PW.03.02",
+    "nama": "Laporan Hasil Audit Tujuan Tertentu (Audit Khusus)"
+  },
+  {
+    "kode": "PW.03.03",
+    "nama": "Pemantauan / Monitoring Badan Pemeriksaan Keuangan (BPK RI), Badan Pengawasan Keuangan dan Pembangunan Republik Indonesia (BPKP RI), Ombudsman Republik Indonesia (ORI). Inspektorat Jenderal"
+  },
+  {
+    "kode": "PW.03.04",
+    "nama": "Pengawasan Lainnya, Pendampingan, Sosialisasi, Perjanjian Kerja Sama"
+  },
+  {
+    "kode": "PW.03.05",
+    "nama": "Inspektorat Jenderal"
+  },
+  {
+    "kode": "PW.04.01",
+    "nama": "Laporan Tindak Lanjut Hasil Audit Kinerja"
+  },
+  {
+    "kode": "PW.04.02",
+    "nama": "Laporan Tindak Lanjut Hasil Audit Khusus"
+  },
+  {
+    "kode": "PW.04.03",
+    "nama": "Tindak Lanjut BPKP RI, BPK RI, ITJEN"
+  },
+  {
+    "kode": "PW.05.01",
+    "nama": "Reviu"
+  },
+  {
+    "kode": "PW.05.02",
+    "nama": "Tindak Lanjut Reviu"
+  },
+  {
+    "kode": "PW.06.01",
+    "nama": "Whistle Blowing System (WBS)"
+  },
+  {
+    "kode": "PW.06.02",
+    "nama": "Gratifikasi"
+  },
+  {
+    "kode": "PW.06.03",
+    "nama": "Pengaduan Tertulis (SMS Gateaway, PO BOX 3489, Email ITJEN)"
+  },
+  {
+    "kode": "PW.06.05",
+    "nama": "Pengaduan Melalui Aplikasi LAPOR (Layanan Pengaduan Secara Online Rakyat)"
+  },
+  {
+    "kode": "PW.06.06",
+    "nama": "Pengaduan Ombudsman"
+  },
+  {
+    "kode": "PW.07.01",
+    "nama": "Tanggapan/Telaahan Hukuman Disiplin Yang Tidak Ditindaklanjuti"
+  },
+  {
+    "kode": "PW.07.02",
+    "nama": "Tanggapan/Telaahan Hukuman Disiplin Yang Ditindaklanjuti"
+  },
+  {
+    "kode": "PW.07.03",
+    "nama": "Daftar nama Pegawai Kementerian Imigrasi dan Pemasyarakatan yang dikenakan sanksi Hukuman disiplin/kartu cela"
+  },
+  {
+    "kode": "SA.01.01",
+    "nama": "Inventarisasi Jabatan/Peta Jabatan"
+  },
+  {
+    "kode": "SA.01.02",
+    "nama": "Evaluasi Jabatan"
+  },
+  {
+    "kode": "SA.01.03",
+    "nama": "Usulan Formasi"
+  },
+  {
+    "kode": "SA.01.04",
+    "nama": "Alokasi Formasi"
+  },
+  {
+    "kode": "SA.02.01",
+    "nama": "Proses Penerimaan SDM Aparatur"
+  },
+  {
+    "kode": "SA.02.02",
+    "nama": "Berkas Lamaran Yang Tidak Diterima"
+  },
+  {
+    "kode": "SA.02.03",
+    "nama": "Surat Keputusan CPNS/ PNS Kolektif"
+  },
+  {
+    "kode": "SA.02.04",
+    "nama": "Penerimaan SDM Aparatur dan Politeknik Ilmu Pemasyarakatan/Politeknik Imigrasi"
+  },
+  {
+    "kode": "SA.02.05",
+    "nama": "Ujian Dinas dan Ujian Penyesuaian ijazah"
+  },
+  {
+    "kode": "SA.03.01",
+    "nama": "Pengangkatan CPNS"
+  },
+  {
+    "kode": "SA.03.02",
+    "nama": "Pengangkatan PNS"
+  },
+  {
+    "kode": "SA.03.03",
+    "nama": "Pengangkatan Jabatan Struktural"
+  },
+  {
+    "kode": "SA.03.04",
+    "nama": "Pengangkatan Jabatan Fungsional"
+  },
+  {
+    "kode": "SA.04.01",
+    "nama": "Alih Tugas/Diperbantukan/Diperkerjakan/Pelaksana"
+  },
+  {
+    "kode": "SA.04.02",
+    "nama": "Pelaksana Harian/Pelaksana Tugas"
+  },
+  {
+    "kode": "SA.04.03",
+    "nama": "Pencantuman Gelar Akademik"
+  },
+  {
+    "kode": "SA.04.04",
+    "nama": "Kenaikan Gaji berkala"
+  },
+  {
     "kode": "SA.04.05",
     "nama": "Kenaikan Pangkat (KP)/Golongan"
   },
   {
+    "kode": "SA.04.06",
+    "nama": "Peninjauan Masa Kerja"
+  },
+  {
+    "kode": "SA.04.07",
+    "nama": "Berkas Badan Pertimbangan Jabatan dan Kepangkatan (Baperjakat)"
+  },
+  {
+    "kode": "SA.04.08",
+    "nama": "Pengaktifan Kembali dari Cuti Luar Tanggungan Negara (CTLN) dan Hukuman Disiplin"
+  },
+  {
+    "kode": "SA.05.01",
+    "nama": "Peniliaian Prestasi Kerja Pegawai (PPKP)"
+  },
+  {
+    "kode": "SA.05.02",
+    "nama": "Pembinaan Disiplin dan Kode Etik"
+  },
+  {
+    "kode": "SA.05.03",
+    "nama": "Pemberian Penghargaan dan Tanda Jasa"
+  },
+  {
+    "kode": "SA.06.01",
+    "nama": "Pengembangan Kompetensi Jabatan Pimpinan Tinggi dan Administrasi"
+  },
+  {
+    "kode": "SA.06.02",
+    "nama": " Pengembangan Kompetensi Fungsional"
+  },
+  {
+    "kode": "SA.06.03",
+    "nama": "Pengiriman Peserta Diklat"
+  },
+  {
+    "kode": "SA.06.04",
+    "nama": "Bea Siswa"
+  },
+  {
+    "kode": "SA.07.01",
+    "nama": "Tingkat Ringan (Pernyataan Tidak Puas, Teguran Lisan, Teguran Tertulis)"
+  },
+  {
+    "kode": "SA.07.02",
+    "nama": "Tingkat Sedang (Penundaan KGB,KP dan Penurunan Gaji)"
+  },
+  {
+    "kode": "SA.07.03",
+    "nama": "Tingkat Berat (Penurunan Pangkat, Pembebasan Jabatan, Pemberhentian Dengan Hormat/Tidak Hormat)"
+  },
+  {
+    "kode": "SA.08.01",
+    "nama": "Data SDM Aparatur"
+  },
+  {
+    "kode": "SA.08.02",
+    "nama": "Identitas Pegawai (Kartu Pegawai, Kartu Suami, Kartu Istri)"
+  },
+  {
+    "kode": "SA.08.03",
+    "nama": "Izin Kepegawaian (Izin Belajar, Tugas Belajar Dalam Negeri dan Luar Negeri)"
+  },
+  {
+    "kode": "SA.08.04",
+    "nama": "Keanggotaan SDM Aparatur Dalam Organisasi Sosial"
+  },
+  {
+    "kode": "SA.08.05",
+    "nama": "Daftar Hadir/Absensi SDM Aparatur"
+  },
+  {
+    "kode": "SA.09.01",
+    "nama": "Kesehatan"
+  },
+  {
+    "kode": "SA.09.02",
+    "nama": "Perumahan (Tabungan Perumahan (TAPERUM), Biaya Uang Muka)"
+  },
+  {
+    "kode": "SA.09.03",
+    "nama": "Tabungan dan Asuransi Pegawai Negeri (TASPEN)"
+  },
+  {
+    "kode": "SA.09.04",
+    "nama": "Cuti"
+  },
+  {
+    "kode": "SA.09.05",
+    "nama": "Uang Duka Tewas"
+  },
+  {
+    "kode": "SA.09.06",
+    "nama": "Pembekalan Purnabakti"
+  },
+  {
+    "kode": "SA.09.07",
+    "nama": "Mutasi Keluarga"
+  },
+  {
+    "kode": "SA.09.08",
+    "nama": "Laporan Kekayaan (Laporan Pajak-Pajak Pribadi (LP2P) dan Laporan Harta Kekayaan Penyelenggara Negara (LHKPN))"
+  },
+  {
+    "kode": "SA.10.01",
+    "nama": "Jabatan Fungsional Umum (JFU)"
+  },
+  {
+    "kode": "SA.10.02",
+    "nama": "Jabatan Fungsional Tertentu (JFT)"
+  },
+  {
+    "kode": "SA.11.01",
+    "nama": "Pemberhentian Atas Permintaan Sendiri"
+  },
+  {
+    "kode": "SA.11.02",
+    "nama": "Pemberhentian Karena Batas Usia Pensiun"
+  },
+  {
+    "kode": "SA.11.03",
+    "nama": "Pemberhentian Karena Keuzuran/Kondisi Jasmani dan Rohani"
+  },
+  {
+    "kode": "SA.11.04",
+    "nama": "Pemberhentian Karena Hilang"
+  },
+  {
+    "kode": "SA.11.05",
+    "nama": "Pemberhentian Sementara"
+  },
+  {
+    "kode": "SA.11.06",
+    "nama": "Pensiun Janda/Duda dan Anak"
+  },
+  {
+    "kode": "SA.12",
+    "nama": "Berkas PNS"
+  },
+  {
+    "kode": "SA.13",
+    "nama": "Berkas Perseorangan Menteri, Wakil Menteri dan Pejabat Negara lainnya"
+  },
+  {
+    "kode": "SA.14.01",
+    "nama": "KORPRI"
+  },
+  {
+    "kode": "SA.14.02",
+    "nama": "Dharma Wanita"
+  },
+  {
+    "kode": "SA.14.03",
+    "nama": "Koperasi"
+  },
+  {
+    "kode": "SM.01.01",
+    "nama": "Perencanaan Program Pendidikan dan Pelatihan"
+  },
+  {
+    "kode": "SM.01.02",
+    "nama": "Kurikulum, Metode Standar/Mutu dan Pedoman Diklat"
+  },
+  {
+    "kode": "SM.01.03",
+    "nama": "Penyelenderung"
+  },
+  {
+    "kode": "SM.01.04",
+    "nama": "Evaluasi"
+  },
+  {
+    "kode": "SM.02.01",
+    "nama": "Perencanaan Program Diklat"
+  },
+  {
+    "kode": "SM.02.02",
+    "nama": "Kurikulum, Metode Standar/Mutu dan Pedoman Diklat"
+  },
+  {
+    "kode": "SM.02.03",
+    "nama": "Penyelenderung"
+  },
+  {
+    "kode": "SM.02.04",
+    "nama": "Evaluasi"
+  },
+  {
+    "kode": "SM.03.01",
+    "nama": "Fasilitatif"
+  },
+  {
+    "kode": "SM.03.02",
+    "nama": "Substantif"
+  },
+  {
+    "kode": "SM.04.01",
+    "nama": "Seminar, Lokakarya, Diskusi, Simposium, Temu Karya, Bedah Buku"
+  },
+  {
+    "kode": "SM.05.01",
+    "nama": "Penyusunan Program"
+  },
+  {
+    "kode": "SM.05.02",
+    "nama": "Standarisasi Kompetensi"
+  },
+  {
+    "kode": "SM.05.03",
+    "nama": "Penilaian Kompetensi"
+  },
+  {
+    "kode": "SM.05.04",
+    "nama": "Evaluasi"
+  },
+  {
+    "kode": "SM.06.01",
+    "nama": "International"
+  },
+  {
+    "kode": "SM.06.02",
+    "nama": "Institusi/Lembaga"
+  },
+  {
+    "kode": "SM.06.03",
+    "nama": "Universitas/Perguruan Tinggi"
+  },
+  {
+    "kode": "TI.02",
+    "nama": "Pengamanan Jaringan"
+  },
+  {
+    "kode": "TI.03.01",
+    "nama": "Standarisasi Teknologi dan Informasi"
+  },
+  {
+    "kode": "TI.03.02",
+    "nama": "Implementasi Aplikasi"
+  },
+  {
+    "kode": "TI.03.03",
+    "nama": "Implementasi Situs Internet, Portal Internet dan Surat Elektronik"
+  },
+  {
+    "kode": "TI.03.04",
+    "nama": "Uji Coba Infrastruktur"
+  },
+  {
+    "kode": "TI.04.01",
+    "nama": "Kerja sama Internal"
+  },
+  {
+    "kode": "TI.04.02",
+    "nama": "Kerja sama Eksternal"
+  },
+  {
+    "kode": "TI.05.01",
+    "nama": "Penyusunan Program Perencanaan Teknologi dan Informasi"
+  },
+  {
+    "kode": "TI.05.02",
+    "nama": "Pengembangan Infrastruktur Teknologi dan Informasi"
+  },
+  {
+    "kode": "TI.05.03",
+    "nama": "Pengembangan Aplikasi"
+  },
+  {
+    "kode": "TI.05.04",
+    "nama": "Pengembangan Database, Situs Internet dan Surat Elektronik"
+  },
+  {
+    "kode": "TI.06.01",
+    "nama": "Pengelolaan Jaringan"
+  },
+  {
+    "kode": "TI.06.02",
+    "nama": "Pengelolaan Jaringan Sistem Informasi"
+  },
+  {
+    "kode": "TI.06.03",
+    "nama": "Pengelolaan Database"
+  },
+  {
+    "kode": "TI.06.04",
+    "nama": "Pengelolaan Situs Internet, Portal Internet dan Surat Elektronik"
+  },
+  {
+    "kode": "TI.06.05",
+    "nama": "Pengelolaan Aplikasi"
+  },
+  {
+    "kode": "TI.06.06",
+    "nama": "Pengelolaan Alat Pendukung"
+  },
+  {
+    "kode": "TI.07.01",
+    "nama": "Naskah Layanan Keluhan LPSE (Layanan Pengadaan Secara Elektronik)"
+  },
+  {
+    "kode": "TI.07.02",
+    "nama": "Tindak Lanjut Keluhan"
+  },
+  {
+    "kode": "TI.07.03",
+    "nama": "Monitoring/Pemantauan Layanan Keluhan tentang Software/Hardware"
+  },
+  {
+    "kode": "TI.07.04",
+    "nama": "Evaluasi (Hasil Evaluasi TI)"
+  },
+  {
+    "kode": "TI.08.01",
+    "nama": "Media Massa (Cetak, Elektronik, Media Sosial)"
+  },
+  {
+    "kode": "TI.08.02",
+    "nama": "Sosialisasi dan Diseminasi"
+  },
+  {
+    "kode": "TI.08.03",
+    "nama": "Pejabat Pengelola Informasi dan Dokumentasi (PPID)"
+  },
+  {
+    "kode": "TI.08.04",
+    "nama": "Badan Koordinasi Hubungan Masyarakat (Bakohumas)"
+  },
+  {
+    "kode": "TI.08.05",
+    "nama": "Peliputan"
+  },
+  {
+    "kode": "TI.08.06",
+    "nama": "Konferensi Pers"
+  },
+  {
+    "kode": "TI.08.07",
+    "nama": "Siaran Pers"
+  },
+  {
+    "kode": "TI.09.01",
+    "nama": "Produk Informasi (Media Cetak, Elektronik, Media Sosial)"
+  },
+  {
+    "kode": "TI.09.02",
+    "nama": "Rekapitulasi Pemberitaan"
+  },
+  {
     "kode": "UM.01.01",
-    "nama": "Persuratan / Tata Usaha"
+    "nama": "Persuratan"
+  },
+  {
+    "kode": "UM.01.02",
+    "nama": "Ucapan Terima Kasih/Ucapan Selamat"
   },
   {
     "kode": "UM.02.01",
@@ -258,5 +1286,133 @@
   {
     "kode": "UM.02.02",
     "nama": "Pemusnahan Arsip"
+  },
+  {
+    "kode": "UM.02.03",
+    "nama": "Penyerahan"
+  },
+  {
+    "kode": "UM.02.04",
+    "nama": "Pembinaan Kearsipan"
+  },
+  {
+    "kode": "UM.02.05",
+    "nama": "Pengawasan Kearsipan"
+  },
+  {
+    "kode": "UM.02.06",
+    "nama": "Monitoring dan Evaluasi"
+  },
+  {
+    "kode": "UM.03.01",
+    "nama": "Penggunaan Ruang dan Peralatan Kantor"
+  },
+  {
+    "kode": "UM.03.02",
+    "nama": "Penggunaan dan Penghunian Rumah Negara"
+  },
+  {
+    "kode": "UM.03.03",
+    "nama": "Penggunaan dan Pemeliharaan Kendaraan Dinas"
+  },
+  {
+    "kode": "UM.03.04",
+    "nama": "Penggunaan dan Pemeliharaan Barang Elektronik serta Mesin"
+  },
+  {
+    "kode": "UM.03.05",
+    "nama": "Pemeliharaan Gedung dan Bangunan serta Area Kantor"
+  },
+  {
+    "kode": "UM.03.06",
+    "nama": "Pemeliharaan Alat Kesehatan"
+  },
+  {
+    "kode": "UM.03.07",
+    "nama": "Perjalanan Dinas (Dalam Negeri/Luar Negeri)"
+  },
+  {
+    "kode": "UM.03.08",
+    "nama": "Penghematan Energi dan Air"
+  },
+  {
+    "kode": "UM.04.01",
+    "nama": "Penyelenda Upacara"
+  },
+  {
+    "kode": "UM.04.02",
+    "nama": "Pelayanan Tamu, Acara Kedinasan, Jamuan dan Ramah Tamah"
+  },
+  {
+    "kode": "UM.04.03",
+    "nama": "Daftara Nama Pejabat dan Alamat"
+  },
+  {
+    "kode": "UM.05.01",
+    "nama": "Pengamanan Personil (VVIP/VIP)"
+  },
+  {
+    "kode": "UM.05.02",
+    "nama": "Pengamanan Lingkungan, Fisik dan Instalasi"
+  },
+  {
+    "kode": "UM.05.03",
+    "nama": "Pengamanan Dokumen dan Informasi Rahasia"
+  },
+  {
+    "kode": "UM.05.04",
+    "nama": "Laporan Keamanan"
+  },
+  {
+    "kode": "UM.05.05",
+    "nama": "Laporan Kejadian"
+  },
+  {
+    "kode": "UM.05.06",
+    "nama": "Bantuan Pengamanan"
+  },
+  {
+    "kode": "UM.06.01",
+    "nama": "Layanan Keagamaan dan Sosial"
+  },
+  {
+    "kode": "UM.06.02",
+    "nama": "Layanan Kesehatan Jasmani"
+  },
+  {
+    "kode": "UM.06.03",
+    "nama": "Pelayanan Kesehatan"
+  },
+  {
+    "kode": "UM.07.01",
+    "nama": "Akuisisi"
+  },
+  {
+    "kode": "UM.07.02",
+    "nama": "Pengolahan Bahan Pustaka"
+  },
+  {
+    "kode": "UM.07.03",
+    "nama": "Pangkalan Data Koleksi"
+  },
+  {
+    "kode": "UM.07.04",
+    "nama": "Layanan Perpustakaan"
+  },
+  {
+    "kode": "UM.07.05",
+    "nama": "Preservasi Bahan Pustaka"
+  },
+  {
+    "kode": "UM.07.06",
+    "nama": "Pengembangan Perpustakaan"
+  },
+  {
+    "kode": "UM.07.07",
+    "nama": "Pendidikan dan Pelatihan Perpustakaan"
+  },
+  {
+    "kode": "UM.07.08",
+    "nama": "Tenaga Perpustakaan"
   }
 ]

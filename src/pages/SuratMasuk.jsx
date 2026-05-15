@@ -1,63 +1,26 @@
-import { useState, useEffect } from "react";
+// =========================
+// SURAT MASUK
+// =========================
+
+import { useState } from "react";
 import klasifikasi from "../data/data_klasifikasi.json";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbydrpdtBLlx8_RWMH9w3E12onEi_mr_Im2HCehkxEe6KKQGgc2aEx40lq_iz2ID00PONQ/exec";
+  "https://script.google.com/macros/s/AKfycbxUTEpWoChNPOb0xtYQoi97NYfwztJ_7h_QUbTVptIjTHjspbU1vrEUavD6Iqp8XERjzA/exec";
 
 export default function SuratMasuk() {
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     klasifikasi: "",
     kategoriSurat: "",
-    nomor: "Memuat nomor otomatis...",
+    nomor: "",
     instansi: "",
     perihal: "",
-    file: null,
+    files: [],
   });
-
-  // AUTO NOMOR
-  useEffect(() => {
-  const getNomor = async () => {
-    try {
-      const res = await fetch(`${API_URL}?jenis=SuratMasuk`);
-      const result = await res.json();
-
-      let urutan = 1;
-
-      if (result.length > 0) {
-  const nomorList = result.map((item) => {
-    const nomor = item.Nomor_Surat;
-
-    if (!nomor) return 0;
-
-    const angka = parseInt(
-      nomor.split(".").pop()
-    );
-
-    return isNaN(angka) ? 0 : angka;
-  });
-
-  urutan = Math.max(...nomorList) + 1;
-}
-
-      const nomorBaru = `WP.19.PAS.PAS.15.${String(
-        urutan
-      ).padStart(2, "0")}`;
-
-      setForm((prev) => ({
-        ...prev,
-        nomor: nomorBaru,
-      }));
-
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  getNomor();
-}, []);
 
   const handleChange = (e) => {
     setForm({
@@ -66,10 +29,11 @@ export default function SuratMasuk() {
     });
   };
 
+  // MULTI FILE
   const handleFile = (e) => {
     setForm({
       ...form,
-      file: e.target.files[0],
+      files: Array.from(e.target.files),
     });
   };
 
@@ -77,20 +41,26 @@ export default function SuratMasuk() {
     e.preventDefault();
 
     try {
-      let base64File = null;
-      let fileName = null;
+      let filesData = [];
 
-      if (form.file) {
-        const reader = new FileReader();
-        reader.readAsDataURL(form.file);
+      // MULTI FILE
+      if (form.files.length > 0) {
+        for (const file of form.files) {
+          const reader = new FileReader();
 
-        await new Promise((resolve) => {
-          reader.onloadend = () => {
-            base64File = reader.result;
-            fileName = form.file.name;
-            resolve();
-          };
-        });
+          const base64 = await new Promise((resolve) => {
+            reader.readAsDataURL(file);
+
+            reader.onloadend = () => {
+              resolve(reader.result);
+            };
+          });
+
+          filesData.push({
+            file: base64,
+            fileName: file.name,
+          });
+        }
       }
 
       await fetch(API_URL, {
@@ -103,18 +73,13 @@ export default function SuratMasuk() {
           instansi: form.instansi,
           klasifikasi: form.klasifikasi,
           kategoriSurat: form.kategoriSurat,
-          file: base64File,
-          fileName: fileName,
+          files: filesData,
         }),
       });
 
-      // simpan lokal
       const data = JSON.parse(localStorage.getItem("surat_masuk")) || [];
 
-      localStorage.setItem(
-        "surat_masuk",
-        JSON.stringify([...data, form])
-      );
+      localStorage.setItem("surat_masuk", JSON.stringify([...data, form]));
 
       await Swal.fire({
         icon: "success",
@@ -130,17 +95,19 @@ export default function SuratMasuk() {
         nomor: "",
         instansi: "",
         perihal: "",
-        file: null,
+        files: [],
       });
 
       const isAdmin = localStorage.getItem("isAdmin");
+
       if (isAdmin === "true") {
         navigate("/data/masuk");
       } else {
         navigate("/");
       }
-
     } catch (err) {
+      console.log(err);
+
       Swal.fire("Error", "Gagal kirim data", "error");
     }
   };
@@ -152,24 +119,26 @@ export default function SuratMasuk() {
 
         <form onSubmit={handleSubmit}>
           <div className="form-grid">
-
             <div>
               <label>Klasifikasi</label>
 
-              <select
+              <input
+                type="text"
                 name="klasifikasi"
+                list="list-klasifikasi-masuk"
                 value={form.klasifikasi}
                 onChange={handleChange}
+                placeholder="Ketik kode atau nama klasifikasi"
                 required
-              >
-                <option value="">Pilih Klasifikasi</option>
+              />
 
+              <datalist id="list-klasifikasi-masuk">
                 {klasifikasi.map((item, i) => (
                   <option key={i} value={item.kode}>
                     {item.kode} - {item.nama}
                   </option>
                 ))}
-              </select>
+              </datalist>
 
               <label>Kategori Surat</label>
 
@@ -180,16 +149,24 @@ export default function SuratMasuk() {
                 required
               >
                 <option value="">Pilih Kategori</option>
+
                 <option value="PK">PK</option>
                 <option value="BKD">BKD</option>
                 <option value="BKA">BKA</option>
                 <option value="TU">TU</option>
                 <option value="Kepegawaian">Kepegawaian</option>
+                <option value="Keuangan">Keuangan</option>
               </select>
 
               <label>Nomor Surat</label>
 
-              <input value={form.nomor || "Memuat nomor surat..."} readOnly />
+              <input
+                name="nomor"
+                value={form.nomor}
+                onChange={handleChange}
+                placeholder="Masukkan nomor surat"
+                required
+              />
 
               <label>Instansi</label>
 
@@ -214,41 +191,35 @@ export default function SuratMasuk() {
               <p>Upload Dokumen</p>
 
               <div className="file-input">
-                <input
-                  type="file"
-                  onChange={handleFile}
-                  required
-                />
+                <input type="file" multiple onChange={handleFile} required />
               </div>
+
               <div className="form-full">
+                <button type="submit" className="btn-primary full">
+                  Simpan Arsip
+                </button>
 
-              <button
-                type="submit"
-                className="btn-primary full"
-              >
-                Simpan Arsip
-              </button>
+                <button
+                  type="button"
+                  className="btn-outline full mt-2"
+                  onClick={() => {
+                    const isAdmin = localStorage.getItem("isAdmin");
 
-              <button
-                type="button"
-                className="btn-outline full mt-2"
-                onClick={() => {
-                const isAdmin = localStorage.getItem("isAdmin");
-
-                if (isAdmin === "true") {
-                  navigate("/data/masuk");
-                } else {
-                  navigate("/");
-                }
-              }}
-              >
-                Batal
-              </button>
-            </div>
+                    if (isAdmin === "true") {
+                      navigate("/data/masuk");
+                    } else {
+                      navigate("/");
+                    }
+                  }}
+                >
+                  Batal
+                </button>
+              </div>
             </div>
           </div>
         </form>
       </div>
+
       <footer className="footer">
         © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
       </footer>

@@ -4,7 +4,8 @@ import Swal from "sweetalert2";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import klasifikasi from "../data/data_klasifikasi.json";
 
-const API_URL = "https://script.google.com/macros/s/AKfycbydrpdtBLlx8_RWMH9w3E12onEi_mr_Im2HCehkxEe6KKQGgc2aEx40lq_iz2ID00PONQ/exec";
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbxUTEpWoChNPOb0xtYQoi97NYfwztJ_7h_QUbTVptIjTHjspbU1vrEUavD6Iqp8XERjzA/exec";
 
 export default function EditSurat() {
   const { state } = useLocation();
@@ -71,13 +72,11 @@ export default function EditSurat() {
     <DashboardLayout>
       <div className="edit-wrapper">
         <div className="edit-card">
-
           <h2 className="edit-title">
             Edit {jenis === "SuratMasuk" ? "Surat Masuk" : "Surat Keluar"}
           </h2>
 
           <form onSubmit={handleUpdate}>
-
             <label>Nomor Surat</label>
             <input
               name="nomorSurat"
@@ -100,19 +99,19 @@ export default function EditSurat() {
             />
 
             <label>Klasifikasi</label>
-              <select
-                name="klasifikasi"
-                value={form.klasifikasi}
-                onChange={handleChange}
-              >
-                <option value="">Pilih Klasifikasi</option>
+            <select
+              name="klasifikasi"
+              value={form.klasifikasi}
+              onChange={handleChange}
+            >
+              <option value="">Pilih Klasifikasi</option>
 
-                {klasifikasi.map((item, i) => (
-                  <option key={i} value={item.kode}>
-                    {item.kode} - {item.nama}
-                  </option>
-                ))}
-              </select>
+              {klasifikasi.map((item, i) => (
+                <option key={i} value={item.kode}>
+                  {item.kode} - {item.nama}
+                </option>
+              ))}
+            </select>
 
             {jenis === "SuratMasuk" && (
               <>
@@ -158,7 +157,6 @@ export default function EditSurat() {
                 Batal
               </button>
             </div>
-
           </form>
         </div>
       </div>

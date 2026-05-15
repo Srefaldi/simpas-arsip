@@ -1,48 +1,92 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaInbox, FaPaperPlane } from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({ closeSidebar }) {
   const location = useLocation();
 
   const menu = [
-    { name: "Dashboard", path: "/dashboard", icon: <FaHome /> },
-    { name: "Surat Masuk", path: "/data/masuk", icon: <FaInbox /> },
-    { name: "Surat Keluar", path: "/data/keluar", icon: <FaPaperPlane /> },
+    {
+      name: "Dashboard",
+      path: "/dashboard",
+      icon: <FaHome />,
+    },
+
+    {
+      name: "Surat Masuk",
+      path: "/data/masuk",
+      icon: <FaInbox />,
+    },
+
+    {
+      name: "Surat Keluar",
+      path: "/data/keluar",
+      icon: <FaPaperPlane />,
+    },
   ];
 
   const kategoriMenu = [
-  { name: "PK", path: "/data/masuk?kategori=PK" },
-  { name: "BKD", path: "/data/masuk?kategori=BKD" },
-  { name: "BKA", path: "/data/masuk?kategori=BKA" },
-  { name: "TU", path: "/data/masuk?kategori=TU" },
-  { name: "Kepegawaian", path: "/data/masuk?kategori=Kepegawaian" },
-];
+    {
+      name: "PK",
+      path: "/data/masuk?kategori=PK",
+    },
+
+    {
+      name: "BKD",
+      path: "/data/masuk?kategori=BKD",
+    },
+
+    {
+      name: "BKA",
+      path: "/data/masuk?kategori=BKA",
+    },
+
+    {
+      name: "TU",
+      path: "/data/masuk?kategori=TU",
+    },
+
+    {
+      name: "Kepegawaian",
+      path: "/data/masuk?kategori=Kepegawaian",
+    },
+
+    {
+      name: "Keuangan",
+      path: "/data/masuk?kategori=Keuangan",
+    },
+  ];
 
   return (
-    <div className="sidebar">
+    <>
       <div className="logo-box">
         <div className="logo-bg">
-    <img src="/kemenimipas.png" alt="kemenimipas" />
-    <img src="/bapas.png" alt="bapas" />
-  </div>
-    <h3>E-Arsip</h3>
-  </div>
+          <img src="/kemenimipas.png" alt="kemenimipas" />
 
+          <img src="/bapas.png" alt="bapas" />
+        </div>
+
+        <h3>E-Arsip</h3>
+      </div>
+
+      {/* MENU */}
       <div className="menu">
         {menu.map((item, i) => (
           <Link
             key={i}
             to={item.path}
+            onClick={closeSidebar}
             className={
               location.pathname === item.path ? "menu-item active" : "menu-item"
             }
           >
             <span className="icon">{item.icon}</span>
+
             {item.name}
           </Link>
         ))}
       </div>
 
+      {/* KATEGORI */}
       <div className="kategori-box">
         <p className="kategori-title">Kategori Surat</p>
 
@@ -50,6 +94,7 @@ export default function Sidebar() {
           <Link
             key={i}
             to={item.path}
+            onClick={closeSidebar}
             className={
               location.pathname + location.search === item.path
                 ? "menu-item small active"
@@ -60,6 +105,6 @@ export default function Sidebar() {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 }
