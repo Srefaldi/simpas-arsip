@@ -91,7 +91,7 @@ export default function Dashboard() {
       <h2 className="title">Overview Arsip</h2>
 
       {/* LOADING */}
-      {loading && <p style={{ marginTop: 10 }}>Loading data...</p>}
+      {loading && <p style={{ marginTop: 10 }}> Memuat Data...</p>}
 
       {/* CARD */}
       <div className="stats">

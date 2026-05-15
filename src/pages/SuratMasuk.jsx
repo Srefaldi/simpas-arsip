@@ -37,10 +37,25 @@ export default function SuratMasuk() {
     });
   };
 
+  // =========================
+  // SURAT MASUK
+  // =========================
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // LOADING
+      Swal.fire({
+        title: "Menyimpan Arsip...",
+        text: "Mohon tunggu sebentar",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
       let filesData = [];
 
       // MULTI FILE
@@ -81,6 +96,7 @@ export default function SuratMasuk() {
 
       localStorage.setItem("surat_masuk", JSON.stringify([...data, form]));
 
+      // SUCCESS
       await Swal.fire({
         icon: "success",
         title: "Berhasil",
@@ -89,6 +105,7 @@ export default function SuratMasuk() {
         showConfirmButton: false,
       });
 
+      // RESET
       setForm({
         klasifikasi: "",
         kategoriSurat: "",

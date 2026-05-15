@@ -82,10 +82,25 @@ export default function SuratKeluar() {
     });
   };
 
+  // =========================
+  // SURAT KELUAR
+  // =========================
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // LOADING
+      Swal.fire({
+        title: "Menyimpan Arsip...",
+        text: "Mohon tunggu sebentar",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
       let base64File = null;
       let fileName = null;
 
@@ -99,6 +114,7 @@ export default function SuratKeluar() {
           reader.onloadend = () => {
             base64File = reader.result;
             fileName = form.file.name;
+
             resolve();
           };
         });
@@ -124,20 +140,20 @@ export default function SuratKeluar() {
 
       localStorage.setItem("surat_keluar", JSON.stringify([...data, form]));
 
-      // SWEET ALERT + COPY NOMOR
+      // SUCCESS
       await Swal.fire({
         icon: "success",
         title: "Berhasil",
         html: `
-          <p>Surat keluar berhasil disimpan!</p>
-          <br/>
-          <button
-            id="copyNomor"
-            class="swal2-confirm swal2-styled"
-          >
-            Salin Nomor Surat
-          </button>
-        `,
+        <p>Surat keluar berhasil disimpan!</p>
+        <br/>
+        <button
+          id="copyNomor"
+          class="swal2-confirm swal2-styled"
+        >
+          Salin Nomor Surat
+        </button>
+      `,
         showConfirmButton: false,
 
         didOpen: () => {

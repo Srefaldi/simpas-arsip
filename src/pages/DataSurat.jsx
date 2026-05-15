@@ -130,7 +130,7 @@ export default function DataSurat() {
               {loading ? (
                 <tr>
                   <td colSpan="7" className="empty">
-                    Loading data...
+                    Memuat Data...
                   </td>
                 </tr>
               ) : filteredData.length === 0 ? (
