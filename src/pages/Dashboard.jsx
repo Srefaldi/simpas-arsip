@@ -41,9 +41,20 @@ export default function Dashboard() {
       const dataKeluar = await resKeluar.json();
 
       // ✅ TOTAL
-      setMasuk(dataMasuk.length);
-      setKeluar(dataKeluar.length);
+      // TOTAL SURAT MASUK
+      const totalMasuk = Math.max(
+        ...dataMasuk.map((item) => Number(item.NO) || 0),
+        0,
+      );
 
+      // TOTAL SURAT KELUAR
+      const totalKeluar = Math.max(
+        ...dataKeluar.map((item) => Number(item.NO) || 0),
+        0,
+      );
+
+      setMasuk(totalMasuk);
+      setKeluar(totalKeluar);
       // 🔥 GABUNGKAN UNTUK GRAFIK
       const grouped = {};
 
