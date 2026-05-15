@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from "react";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbxNZ8HTAnILDTp2LRIlTDS9lvAVBbxutiUKlu6dBzU3oszUGJT9Ui5JCFLjgMVV6Fnmcw/exec";
+  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
 
 export default function Dashboard() {
   const [chartData, setChartData] = useState([]);

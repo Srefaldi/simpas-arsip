@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "../components/layout/DashboardLayout";
-
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbxUTEpWoChNPOb0xtYQoi97NYfwztJ_7h_QUbTVptIjTHjspbU1vrEUavD6Iqp8XERjzA/exec";
+  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
 
 export default function DataSurat() {
   const location = useLocation();
   const navigate = useNavigate();
+
   const query = new URLSearchParams(location.search);
+
   const kategoriFilter = query.get("kategori");
 
   const jenis = location.pathname.includes("masuk")
@@ -19,22 +19,32 @@ export default function DataSurat() {
     : "SuratKeluar";
 
   const [data, setData] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
   const [currentPage, setCurrentPage] = useState(1);
+
+  // SEARCH
+  const [search, setSearch] = useState("");
 
   const dataPerPage = 10;
 
+  // FETCH
   const fetchData = async () => {
     setLoading(true);
+
     try {
       const res = await fetch(`${API_URL}?jenis=${jenis}`);
+
       const result = await res.json();
 
-      console.log("DATA:", result); // debug
+      console.log("DATA:", result);
+
       setData(result);
     } catch (err) {
       console.error(err);
     }
+
     setLoading(false);
   };
 
@@ -62,11 +72,13 @@ export default function DataSurat() {
       });
 
       Swal.fire("Berhasil", "Data dihapus", "success");
+
       fetchData();
     }
   };
 
-  const filteredData = kategoriFilter
+  // FILTER KATEGORI
+  const kategoriData = kategoriFilter
     ? data.filter(
         (i) =>
           i.Kategori_Surat?.toString().trim().toLowerCase() ===
@@ -74,7 +86,22 @@ export default function DataSurat() {
       )
     : data;
 
+  // SEARCH
+  const filteredData = kategoriData.filter((item) => {
+    const keyword = search.toLowerCase();
+
+    return (
+      item.Nomor_Surat?.toLowerCase().includes(keyword) ||
+      item.Perihal?.toLowerCase().includes(keyword) ||
+      item.Instansi?.toLowerCase().includes(keyword) ||
+      item.Klasifikasi?.toLowerCase().includes(keyword) ||
+      item.Kategori_Surat?.toLowerCase().includes(keyword)
+    );
+  });
+
+  // PAGINATION
   const lastIndex = currentPage * dataPerPage;
+
   const firstIndex = lastIndex - dataPerPage;
 
   const currentData = filteredData.slice(firstIndex, lastIndex);
@@ -83,11 +110,12 @@ export default function DataSurat() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [kategoriFilter, jenis]);
+  }, [kategoriFilter, jenis, search]);
 
   return (
     <DashboardLayout onRefresh={fetchData}>
       <div className="data-wrapper">
+        {/* HEADER */}
         <div className="data-header">
           <h2>
             Data {jenis === "SuratMasuk" ? "Surat Masuk" : "Surat Keluar"}
@@ -112,6 +140,18 @@ export default function DataSurat() {
           </div>
         </div>
 
+        {/* SEARCH */}
+        <div className="toolbar">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Cari nomor surat, perihal, instansi..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
+        {/* TABLE */}
         <div className="data-card">
           <table className="data-table">
             <thead>
@@ -121,8 +161,16 @@ export default function DataSurat() {
                 <th>Perihal</th>
                 <th>Instansi</th>
                 <th>Klasifikasi</th>
+
                 {jenis === "SuratMasuk" && <th>Kategori</th>}
-                <th style={{ textAlign: "center" }}>Aksi</th>
+
+                <th
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  Aksi
+                </th>
               </tr>
             </thead>
 
@@ -169,26 +217,37 @@ export default function DataSurat() {
 
                     <td>
                       <div className="aksi">
+                        {/* DETAIL */}
                         <button
                           className="btn-icon view"
                           onClick={() =>
                             navigate("/detail", {
-                              state: { data: item, jenis },
+                              state: {
+                                data: item,
+                                jenis,
+                              },
                             })
                           }
                         >
                           👁
                         </button>
 
+                        {/* EDIT */}
                         <button
                           className="btn-icon edit"
                           onClick={() =>
-                            navigate("/edit", { state: { data: item, jenis } })
+                            navigate("/edit", {
+                              state: {
+                                data: item,
+                                jenis,
+                              },
+                            })
                           }
                         >
                           ✏️
                         </button>
 
+                        {/* DELETE */}
                         <button
                           className="btn-icon delete"
                           onClick={() => handleDelete(item.rowNumber)}
@@ -202,6 +261,8 @@ export default function DataSurat() {
               )}
             </tbody>
           </table>
+
+          {/* PAGINATION */}
           <div className="pagination">
             <button
               disabled={currentPage === 1}
@@ -228,6 +289,7 @@ export default function DataSurat() {
             </button>
           </div>
         </div>
+
         <footer className="footer">
           © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
         </footer>

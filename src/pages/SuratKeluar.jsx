@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbxUTEpWoChNPOb0xtYQoi97NYfwztJ_7h_QUbTVptIjTHjspbU1vrEUavD6Iqp8XERjzA/exec";
+  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
 
 export default function SuratKeluar() {
   const navigate = useNavigate();
@@ -18,11 +18,10 @@ export default function SuratKeluar() {
     file: null,
   });
 
-  // AUTO NOMOR BERDASARKAN KLASIFIKASI
   useEffect(() => {
     const getNomor = async () => {
       try {
-        // cek apakah klasifikasi valid
+        // VALIDASI KLASIFIKASI
         const validKlasifikasi = klasifikasi.find(
           (item) => item.kode.toLowerCase() === form.klasifikasi.toLowerCase(),
         );
@@ -37,19 +36,40 @@ export default function SuratKeluar() {
           return;
         }
 
-        // loading
+        // LOADING
         setForm((prev) => ({
           ...prev,
           nomor: "Memuat nomor surat...",
         }));
 
+        // FETCH REALTIME
         const res = await fetch(`${API_URL}?jenis=SuratKeluar`);
 
         const result = await res.json();
 
-        const urutan = result.length + 1;
+        let nomorTerakhir = 0;
 
-        const nomorBaru = `WP.19.PAS.PAS.15.01.${validKlasifikasi.kode} - ${urutan}`;
+        // LOOP SEMUA DATA
+        result.forEach((item) => {
+          const nomor = item.Nomor_Surat || "";
+
+          // AMBIL ANGKA SETELAH "-"
+          const match = nomor.match(/-(\d+)$/);
+
+          if (match) {
+            const angka = parseInt(match[1]);
+
+            if (angka > nomorTerakhir) {
+              nomorTerakhir = angka;
+            }
+          }
+        });
+
+        // NEXT NUMBER
+        const urutan = nomorTerakhir + 1;
+
+        // FORMAT NOMOR
+        const nomorBaru = `WP.19.PAS.PAS.15.01.${validKlasifikasi.kode}-${urutan}`;
 
         setForm((prev) => ({
           ...prev,
