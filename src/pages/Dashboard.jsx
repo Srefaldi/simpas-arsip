@@ -30,67 +30,219 @@ export default function Dashboard() {
   });
 
   const loadData = async () => {
-    try {
-      setLoading(true);
 
-      // 🔥 AMBIL DATA MASUK & KELUAR TERPISAH
-      const resMasuk = await fetch(`${API_URL}?jenis=SuratMasuk`);
-      const resKeluar = await fetch(`${API_URL}?jenis=SuratKeluar`);
+  try {
 
-      const dataMasuk = await resMasuk.json();
-      const dataKeluar = await resKeluar.json();
+    setLoading(true);
 
-      // ✅ TOTAL
-      // TOTAL SURAT MASUK
-      const totalMasuk = Math.max(
-        ...dataMasuk.map((item) => Number(item.NO) || 0),
-        0,
-      );
+    // FETCH
+    const resMasuk = await fetch(
+      `${API_URL}?jenis=SuratMasuk`
+    );
 
-      // TOTAL SURAT KELUAR
-      const totalKeluar = Math.max(
-        ...dataKeluar.map((item) => Number(item.NO) || 0),
-        0,
-      );
+    const resKeluar = await fetch(
+      `${API_URL}?jenis=SuratKeluar`
+    );
 
-      setMasuk(totalMasuk);
-      setKeluar(totalKeluar);
-      // 🔥 GABUNGKAN UNTUK GRAFIK
-      const grouped = {};
+    const dataMasuk =
+      await resMasuk.json();
 
-      // SURAT MASUK
-      dataMasuk.forEach((item) => {
-        const tgl = item.Tanggal
-          ? new Date(item.Tanggal).toLocaleDateString()
-          : "Tidak ada";
+    const dataKeluar =
+      await resKeluar.json();
 
-        if (!grouped[tgl]) {
-          grouped[tgl] = { tanggal: tgl, masuk: 0, keluar: 0 };
-        }
+    // =========================
+    // TOTAL
+    // =========================
 
-        grouped[tgl].masuk += 1;
-      });
+    const totalMasuk = Math.max(
+      ...dataMasuk.map(
+        (item) =>
+          Number(item.NO) || 0
+      ),
+      0
+    );
 
-      // SURAT KELUAR
-      dataKeluar.forEach((item) => {
-        const tgl = item.Tanggal
-          ? new Date(item.Tanggal).toLocaleDateString()
-          : "Tidak ada";
+    const totalKeluar = Math.max(
+      ...dataKeluar.map(
+        (item) =>
+          Number(item.NO) || 0
+      ),
+      0
+    );
 
-        if (!grouped[tgl]) {
-          grouped[tgl] = { tanggal: tgl, masuk: 0, keluar: 0 };
-        }
+    setMasuk(totalMasuk);
+    setKeluar(totalKeluar);
 
-        grouped[tgl].keluar += 1;
-      });
+    // =========================
+    // PARSE TANGGAL
+    // =========================
 
-      setChartData(Object.values(grouped));
-    } catch (err) {
-      console.error("Error load data:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const parseTanggal = (tgl) => {
+
+      if (!tgl) return null;
+
+      const value =
+        tgl.toString().trim();
+
+      // support:
+      // 16/05/2026
+      // 16-05-2026
+      // 16.05.2026
+
+      const clean =
+        value.replace(/[.-]/g, "/");
+
+      const parts =
+        clean.split("/");
+
+      if (parts.length !== 3)
+        return null;
+
+      const day =
+        parseInt(parts[0]);
+
+      const month =
+        parseInt(parts[1]);
+
+      const year =
+        parseInt(parts[2]);
+
+      if (
+        isNaN(day) ||
+        isNaN(month) ||
+        isNaN(year)
+      ) {
+        return null;
+      }
+
+      const date =
+        new Date(
+          year,
+          month - 1,
+          day
+        );
+
+      if (
+        isNaN(date.getTime())
+      ) {
+        return null;
+      }
+
+      // HANYA BULAN SEKARANG
+      const now =
+        new Date();
+
+      if (
+        date.getMonth() !==
+          now.getMonth() ||
+        date.getFullYear() !==
+          now.getFullYear()
+      ) {
+        return null;
+      }
+
+      return date;
+    };
+
+    // =========================
+    // GROUP DATA
+    // =========================
+
+    const grouped = {};
+
+    // MASUK
+    dataMasuk.forEach((item) => {
+
+      const date =
+        parseTanggal(
+          item.Tanggal
+        );
+
+      if (!date) return;
+
+      const label =
+        date.toLocaleDateString(
+          "id-ID",
+          {
+            day: "2-digit",
+            month: "2-digit",
+          }
+        );
+
+      if (!grouped[label]) {
+
+        grouped[label] = {
+          tanggal: label,
+          masuk: 0,
+          keluar: 0,
+          sortDate: date,
+        };
+      }
+
+      grouped[label].masuk += 1;
+    });
+
+    // KELUAR
+    dataKeluar.forEach((item) => {
+
+      const date =
+        parseTanggal(
+          item.Tanggal
+        );
+
+      if (!date) return;
+
+      const label =
+        date.toLocaleDateString(
+          "id-ID",
+          {
+            day: "2-digit",
+            month: "2-digit",
+          }
+        );
+
+      if (!grouped[label]) {
+
+        grouped[label] = {
+          tanggal: label,
+          masuk: 0,
+          keluar: 0,
+          sortDate: date,
+        };
+      }
+
+      grouped[label].keluar += 1;
+    });
+
+    // SORT
+    const sorted =
+      Object.values(grouped)
+        .sort(
+          (a, b) =>
+            a.sortDate -
+            b.sortDate
+        )
+        .map(
+          ({
+            sortDate,
+            ...rest
+          }) => rest
+        );
+
+    setChartData(sorted);
+
+  } catch (err) {
+
+    console.error(
+      "Error load data:",
+      err
+    );
+
+  } finally {
+
+    setLoading(false);
+  }
+};
 
   // ✅ LOAD SEKALI SAJA
   useEffect(() => {
@@ -127,10 +279,30 @@ export default function Dashboard() {
       <div className="chart-box">
         <h3>Grafik Aktivitas</h3>
 
-        <ResponsiveContainer width="100%" height={220}>
-          <LineChart data={chartData}>
+        <div
+          style={{
+            width: "100%",
+            height: 220,
+            overflow: "hidden",
+          }}
+        >
+          <LineChart
+            width={950}
+            height={250}
+            data={chartData}
+            margin={{
+              top: 10,
+              right: 20,
+              left: 20,
+              bottom: 10,
+            }}
+          >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="tanggal" />
+            <XAxis
+              dataKey="tanggal"
+              tick={{ fontSize: 12 }}
+              interval="preserveStartEnd"
+            />
             <YAxis />
             <Tooltip />
             <Legend />
@@ -141,6 +313,7 @@ export default function Dashboard() {
               stroke="#2563eb"
               strokeWidth={3}
               name="Surat Masuk"
+              isAnimationActive={false}
             />
 
             <Line
@@ -149,9 +322,10 @@ export default function Dashboard() {
               stroke="#16a34a"
               strokeWidth={3}
               name="Surat Keluar"
+              isAnimationActive={false}
             />
           </LineChart>
-        </ResponsiveContainer>
+        </div>
         <footer className="footer">
           © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
         </footer>
