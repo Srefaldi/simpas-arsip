@@ -139,23 +139,63 @@ export default function SuratMasuk() {
             <div>
               <label>Klasifikasi</label>
 
-              <input
-                type="text"
-                name="klasifikasi"
-                list="list-klasifikasi-masuk"
-                value={form.klasifikasi}
-                onChange={handleChange}
-                placeholder="Ketik kode atau nama klasifikasi"
-                required
-              />
+              <div className="modern-dropdown">
+                <input
+                  type="text"
+                  name="klasifikasi"
+                  autoComplete="off"
+                  value={form.klasifikasi}
+                  onChange={handleChange}
+                  onFocus={() => {
+                    document
+                      .getElementById("dropdownKlasifikasiMasuk")
+                      .classList.add("show");
+                  }}
+                  onBlur={() => {
+                    setTimeout(() => {
+                      document
+                        .getElementById("dropdownKlasifikasiMasuk")
+                        .classList.remove("show");
+                    }, 200);
+                  }}
+                  placeholder="Pilih atau cari klasifikasi..."
+                  required
+                />
 
-              <datalist id="list-klasifikasi-masuk">
-                {klasifikasi.map((item, i) => (
-                  <option key={i} value={item.kode}>
-                    {item.kode} - {item.nama}
-                  </option>
-                ))}
-              </datalist>
+                <div id="dropdownKlasifikasiMasuk" className="dropdown-list">
+                  {klasifikasi
+                    .filter(
+                      (item) =>
+                        item.kode
+                          .toLowerCase()
+                          .includes(form.klasifikasi.toLowerCase()) ||
+                        item.nama
+                          .toLowerCase()
+                          .includes(form.klasifikasi.toLowerCase()),
+                    )
+
+                    .map((item, i) => (
+                      <div
+                        key={i}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setForm({
+                            ...form,
+                            klasifikasi: item.kode,
+                          });
+
+                          document
+                            .getElementById("dropdownKlasifikasiMasuk")
+                            .classList.remove("show");
+                        }}
+                      >
+                        <div className="kode">{item.kode}</div>
+
+                        <div className="nama">{item.nama}</div>
+                      </div>
+                    ))}
+                </div>
+              </div>
 
               <label>Kategori Surat</label>
 
