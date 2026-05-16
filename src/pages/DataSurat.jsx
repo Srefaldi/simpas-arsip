@@ -204,7 +204,9 @@ export default function DataSurat() {
                     </td>
 
                     <td>
-                      <span className="badge">{item.Klasifikasi}</span>
+                      <span className="badge klasifikasi-badge">
+                        {item.Klasifikasi || "-"}
+                      </span>
                     </td>
 
                     {jenis === "SuratMasuk" && (

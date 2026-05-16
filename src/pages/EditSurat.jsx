@@ -134,8 +134,16 @@ export default function EditSurat() {
 
             {/* FILE LAMA */}
             <label>File Lama</label>
-            {form.linkFile ? (
-              <a href={form.linkFile} target="_blank" className="file-link">
+
+            {form.linkFile &&
+            form.linkFile !== "-" &&
+            form.linkFile.startsWith("http") ? (
+              <a
+                href={form.linkFile}
+                target="_blank"
+                rel="noreferrer"
+                className="file-link"
+              >
                 Lihat File
               </a>
             ) : (

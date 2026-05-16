@@ -1903,3 +1903,13 @@ select {
     padding: 10px 12px;
   }
 }
+.klasifikasi-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: hsl(214, 67%, 34%);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}

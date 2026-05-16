@@ -58,7 +58,9 @@ export default function DetailSurat() {
           <div className="detail-item">
             <label>File Dokumen</label>
 
-            {data.Link_File ? (
+            {data.Link_File &&
+            data.Link_File !== "-" &&
+            data.Link_File.startsWith("http") ? (
               <a
                 href={data.Link_File}
                 target="_blank"
@@ -79,8 +81,8 @@ export default function DetailSurat() {
             Kembali
           </button>
 
+          </div>
         </div>
-      </div>
-    </DashboardLayout>
+      </DashboardLayout>
   );
 }
