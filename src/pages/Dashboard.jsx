@@ -286,6 +286,10 @@ export default function Dashboard() {
             overflow: "hidden",
           }}
         >
+          <ResponsiveContainer
+            width="100%"
+            height="100%"
+          >
           <LineChart
             width={950}
             height={250}
@@ -325,6 +329,7 @@ export default function Dashboard() {
               isAnimationActive={false}
             />
           </LineChart>
+          </ResponsiveContainer>
         </div>
         <footer className="footer">
           © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
