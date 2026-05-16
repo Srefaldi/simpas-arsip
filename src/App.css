@@ -130,21 +130,20 @@ body {
 
 /* CARD */
 .card {
-  max-width: 1100px;
-  margin: 20px auto;
+  max-width: 1000px;
+  margin: 2px auto;
   background: white;
-  padding: 30px;
+  padding: 18px;
   border-radius: 20px;
-  position: relative;
-  overflow: visible;
+  border-top: 5px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* FORM GRID */
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 20px;
-  overflow: visible;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 
 .form-full {
@@ -227,24 +226,12 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .page {
-    overflow: visible;
-  }
-
-  .card {
-    overflow: visible;
-    padding: 20px;
-  }
-
   .form-grid {
     grid-template-columns: 1fr;
-    overflow: visible;
   }
 
-  select,
-  input,
-  textarea {
-    font-size: 16px;
+  .nav {
+    padding: 15px 20px;
   }
 }
 
@@ -1515,5 +1502,404 @@ select {
   .btn-logout {
     flex: 1;
     justify-content: center;
+  }
+}
+
+/* =====================================
+   MODERN SELECT SRIKANDI STYLE
+===================================== */
+
+.modern-select {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.modern-select select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 12px 45px 12px 14px;
+
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+
+  background: white;
+
+  font-size: 14px;
+  color: #334155;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.modern-select select:focus {
+  outline: none;
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ICON */
+.select-icon {
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* OPTION */
+.modern-select option {
+  padding: 10px;
+}
+/* ====================================
+   SEARCHABLE DROPDOWN
+==================================== */
+
+.searchable-select {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.searchable-select input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 8px;
+  border: 1px solid #cfd8e3;
+
+  background: white;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.searchable-select input:focus {
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* DROPDOWN */
+.search-dropdown {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #dbe3ef;
+
+  border-radius: 10px;
+
+  margin-top: 6px;
+
+  max-height: 250px;
+  overflow-y: auto;
+
+  z-index: 999;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ITEM */
+.dropdown-item {
+  padding: 10px 14px;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  transition: 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #eff6ff;
+}
+
+/* KODE */
+.dropdown-item .kode {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* NAMA */
+.dropdown-item .nama {
+  font-size: 12px;
+  color: #64748b;
+}
+/* ====================================
+   SEARCHABLE DROPDOWN
+==================================== */
+
+.searchable-select {
+  position: relative;
+  width: 100%;
+}
+
+.searchable-select input {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+  border: 1px solid #dbe2ea;
+
+  background: white;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.searchable-select input:focus {
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* DROPDOWN */
+.search-dropdown {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  margin-top: 6px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+
+  z-index: 9999;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ITEM */
+.dropdown-item {
+  padding: 12px 14px;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  transition: 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #eff6ff;
+}
+
+/* KODE */
+.dropdown-item .kode {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* NAMA */
+.dropdown-item .nama {
+  font-size: 12px;
+  color: #64748b;
+}
+.dropdown-list {
+  position: absolute;
+
+  top: calc(100% + 6px);
+  left: 0;
+
+  width: 100%;
+  max-width: 100%;
+
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 12px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-5px);
+
+  transition: 0.2s;
+
+  z-index: 9999;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  box-sizing: border-box;
+}
+.modern-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+.form-grid {
+  overflow: visible !important;
+}
+
+.card {
+  overflow: visible !important;
+}
+/* ===================================
+   MODERN DROPDOWN
+=================================== */
+
+.modern-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.modern-dropdown input {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.modern-dropdown input:focus {
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* DROPDOWN */
+.dropdown-list {
+  position: absolute;
+
+  top: calc(100% + 6px);
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 12px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-5px);
+
+  transition: 0.2s;
+
+  z-index: 9999;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* SHOW */
+.dropdown-list.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+/* ITEM */
+.dropdown-item {
+  padding: 12px 14px;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  transition: 0.2s;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #eff6ff;
+}
+
+/* KODE */
+.dropdown-item .kode {
+  font-weight: 600;
+
+  color: #1e3a8a;
+
+  margin-bottom: 2px;
+}
+
+/* NAMA */
+.dropdown-item .nama {
+  font-size: 12px;
+
+  color: #64748b;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .dropdown-list {
+    position: absolute;
+
+    width: 100%;
+
+    max-height: 220px;
+
+    font-size: 13px;
+  }
+
+  .dropdown-item {
+    padding: 10px 12px;
   }
 }
