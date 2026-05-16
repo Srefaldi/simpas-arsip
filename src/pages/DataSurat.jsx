@@ -88,16 +88,35 @@ export default function DataSurat() {
 
   // SEARCH
   const filteredData = kategoriData.filter((item) => {
-    const keyword = search.toLowerCase();
+  const keyword = search.toLowerCase();
 
-    return (
-      item.Nomor_Surat?.toLowerCase().includes(keyword) ||
-      item.Perihal?.toLowerCase().includes(keyword) ||
-      item.Instansi?.toLowerCase().includes(keyword) ||
-      item.Klasifikasi?.toLowerCase().includes(keyword) ||
-      item.Kategori_Surat?.toLowerCase().includes(keyword)
-    );
-  });
+  return (
+    (item.Nomor_Surat || "")
+      .toString()
+      .toLowerCase()
+      .includes(keyword) ||
+
+    (item.Perihal || "")
+      .toString()
+      .toLowerCase()
+      .includes(keyword) ||
+
+    (item.Instansi || "")
+      .toString()
+      .toLowerCase()
+      .includes(keyword) ||
+
+    (item.Klasifikasi || "")
+      .toString()
+      .toLowerCase()
+      .includes(keyword) ||
+
+    (item.Kategori_Surat || "")
+      .toString()
+      .toLowerCase()
+      .includes(keyword)
+  );
+});
 
   // PAGINATION
   const lastIndex = currentPage * dataPerPage;
