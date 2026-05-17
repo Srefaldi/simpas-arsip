@@ -17,234 +17,169 @@ const API_URL =
 
 export default function Dashboard() {
   const [chartData, setChartData] = useState([]);
+
   const [masuk, setMasuk] = useState(0);
+
   const [keluar, setKeluar] = useState(0);
+
   const [loading, setLoading] = useState(true);
-  const [kategoriCount, setKategoriCount] = useState({
-    PK: 0,
-    BKD: 0,
-    BKA: 0,
-    TU: 0,
-    Kepegawaian: 0,
-    Keuangan: 0,
-  });
+
+  // =========================
+  // LOAD DATA
+  // =========================
 
   const loadData = async () => {
+    try {
+      setLoading(true);
 
-  try {
+      // FETCH
+      const resMasuk = await fetch(`${API_URL}?jenis=SuratMasuk`);
 
-    setLoading(true);
+      const resKeluar = await fetch(`${API_URL}?jenis=SuratKeluar`);
 
-    // FETCH
-    const resMasuk = await fetch(
-      `${API_URL}?jenis=SuratMasuk`
-    );
+      const dataMasuk = await resMasuk.json();
 
-    const resKeluar = await fetch(
-      `${API_URL}?jenis=SuratKeluar`
-    );
+      const dataKeluar = await resKeluar.json();
 
-    const dataMasuk =
-      await resMasuk.json();
+      // =========================
+      // TOTAL
+      // =========================
 
-    const dataKeluar =
-      await resKeluar.json();
+      const totalMasuk = Math.max(
+        ...dataMasuk.map((item) => Number(item.NO) || 0),
+        0,
+      );
 
-    // =========================
-    // TOTAL
-    // =========================
+      const totalKeluar = Math.max(
+        ...dataKeluar.map((item) => Number(item.NO) || 0),
+        0,
+      );
 
-    const totalMasuk = Math.max(
-      ...dataMasuk.map(
-        (item) =>
-          Number(item.NO) || 0
-      ),
-      0
-    );
+      setMasuk(totalMasuk);
+      setKeluar(totalKeluar);
 
-    const totalKeluar = Math.max(
-      ...dataKeluar.map(
-        (item) =>
-          Number(item.NO) || 0
-      ),
-      0
-    );
+      // =========================
+      // PARSE TANGGAL
+      // =========================
 
-    setMasuk(totalMasuk);
-    setKeluar(totalKeluar);
+      const parseTanggal = (tgl) => {
+        if (!tgl) return null;
 
-    // =========================
-    // PARSE TANGGAL
-    // =========================
+        const value = tgl.toString().trim();
 
-    const parseTanggal = (tgl) => {
+        // SUPPORT:
+        // 16/05/2026
+        // 16-05-2026
+        // 16.05.2026
 
-      if (!tgl) return null;
+        const clean = value.replace(/[.-]/g, "/");
 
-      const value =
-        tgl.toString().trim();
+        const parts = clean.split("/");
 
-      // support:
-      // 16/05/2026
-      // 16-05-2026
-      // 16.05.2026
+        if (parts.length !== 3) return null;
 
-      const clean =
-        value.replace(/[.-]/g, "/");
+        const day = parseInt(parts[0]);
 
-      const parts =
-        clean.split("/");
+        const month = parseInt(parts[1]);
 
-      if (parts.length !== 3)
-        return null;
+        const year = parseInt(parts[2]);
 
-      const day =
-        parseInt(parts[0]);
+        if (isNaN(day) || isNaN(month) || isNaN(year)) {
+          return null;
+        }
 
-      const month =
-        parseInt(parts[1]);
+        const date = new Date(year, month - 1, day);
 
-      const year =
-        parseInt(parts[2]);
+        if (isNaN(date.getTime())) {
+          return null;
+        }
 
-      if (
-        isNaN(day) ||
-        isNaN(month) ||
-        isNaN(year)
-      ) {
-        return null;
-      }
+        // HANYA BULAN SEKARANG
+        const now = new Date();
 
-      const date =
-        new Date(
-          year,
-          month - 1,
-          day
-        );
+        if (
+          date.getMonth() !== now.getMonth() ||
+          date.getFullYear() !== now.getFullYear()
+        ) {
+          return null;
+        }
 
-      if (
-        isNaN(date.getTime())
-      ) {
-        return null;
-      }
+        return date;
+      };
 
-      // HANYA BULAN SEKARANG
-      const now =
-        new Date();
+      // =========================
+      // GROUP DATA
+      // =========================
 
-      if (
-        date.getMonth() !==
-          now.getMonth() ||
-        date.getFullYear() !==
-          now.getFullYear()
-      ) {
-        return null;
-      }
+      const grouped = {};
 
-      return date;
-    };
+      // SURAT MASUK
+      dataMasuk.forEach((item) => {
+        const date = parseTanggal(item.Tanggal);
 
-    // =========================
-    // GROUP DATA
-    // =========================
+        if (!date) return;
 
-    const grouped = {};
+        const label = date.toLocaleDateString("id-ID", {
+          day: "2-digit",
+          month: "2-digit",
+        });
 
-    // MASUK
-    dataMasuk.forEach((item) => {
+        if (!grouped[label]) {
+          grouped[label] = {
+            tanggal: label,
 
-      const date =
-        parseTanggal(
-          item.Tanggal
-        );
+            masuk: 0,
+            keluar: 0,
 
-      if (!date) return;
+            sortDate: date,
+          };
+        }
 
-      const label =
-        date.toLocaleDateString(
-          "id-ID",
-          {
-            day: "2-digit",
-            month: "2-digit",
-          }
-        );
+        grouped[label].masuk += 1;
+      });
 
-      if (!grouped[label]) {
+      // SURAT KELUAR
+      dataKeluar.forEach((item) => {
+        const date = parseTanggal(item.Tanggal);
 
-        grouped[label] = {
-          tanggal: label,
-          masuk: 0,
-          keluar: 0,
-          sortDate: date,
-        };
-      }
+        if (!date) return;
 
-      grouped[label].masuk += 1;
-    });
+        const label = date.toLocaleDateString("id-ID", {
+          day: "2-digit",
+          month: "2-digit",
+        });
 
-    // KELUAR
-    dataKeluar.forEach((item) => {
+        if (!grouped[label]) {
+          grouped[label] = {
+            tanggal: label,
 
-      const date =
-        parseTanggal(
-          item.Tanggal
-        );
+            masuk: 0,
+            keluar: 0,
 
-      if (!date) return;
+            sortDate: date,
+          };
+        }
 
-      const label =
-        date.toLocaleDateString(
-          "id-ID",
-          {
-            day: "2-digit",
-            month: "2-digit",
-          }
-        );
+        grouped[label].keluar += 1;
+      });
 
-      if (!grouped[label]) {
+      // SORT
+      const sorted = Object.values(grouped)
+        .sort((a, b) => a.sortDate - b.sortDate)
+        .map(({ sortDate, ...rest }) => rest);
 
-        grouped[label] = {
-          tanggal: label,
-          masuk: 0,
-          keluar: 0,
-          sortDate: date,
-        };
-      }
+      setChartData(sorted);
+    } catch (err) {
+      console.error("Error load data:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      grouped[label].keluar += 1;
-    });
+  // =========================
+  // LOAD SEKALI
+  // =========================
 
-    // SORT
-    const sorted =
-      Object.values(grouped)
-        .sort(
-          (a, b) =>
-            a.sortDate -
-            b.sortDate
-        )
-        .map(
-          ({
-            sortDate,
-            ...rest
-          }) => rest
-        );
-
-    setChartData(sorted);
-
-  } catch (err) {
-
-    console.error(
-      "Error load data:",
-      err
-    );
-
-  } finally {
-
-    setLoading(false);
-  }
-};
-
-  // ✅ LOAD SEKALI SAJA
   useEffect(() => {
     loadData();
   }, []);
@@ -253,29 +188,52 @@ export default function Dashboard() {
     <DashboardLayout onRefresh={loadData}>
       <h2 className="title">Overview Arsip</h2>
 
-      {/* LOADING */}
-      {loading && <p style={{ marginTop: 10 }}> Memuat Data...</p>}
+      {/* =========================
+    FULLSCREEN LOADING
+========================= */}
 
-      {/* CARD */}
+      {loading && (
+        <div className="loading-screen">
+          <div className="loading-content">
+            <div className="loading-spinner"></div>
+
+            <h3>Memuat Data Arsip</h3>
+
+            <p>Mohon tunggu sebentar...</p>
+          </div>
+        </div>
+      )}
+
+      {/* =========================
+          CARD
+      ========================= */}
+
       <div className="stats">
         <div className="stat-box blue">
           <div>
             <p>SURAT MASUK</p>
+
             <h2>{masuk}</h2>
           </div>
+
           <FaInbox size={26} />
         </div>
 
         <div className="stat-box green">
           <div>
             <p>SURAT KELUAR</p>
+
             <h2>{keluar}</h2>
           </div>
+
           <FaPaperPlane size={26} />
         </div>
       </div>
 
-      {/* GRAFIK */}
+      {/* =========================
+          GRAFIK
+      ========================= */}
+
       <div className="chart-box">
         <h3>Grafik Aktivitas</h3>
 
@@ -286,55 +244,63 @@ export default function Dashboard() {
             overflow: "hidden",
           }}
         >
-          <ResponsiveContainer
-            width="100%"
-            height="100%"
-          >
-          <LineChart
-            width={950}
-            height={250}
-            data={chartData}
-            margin={{
-              top: 10,
-              right: 20,
-              left: 20,
-              bottom: 10,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="tanggal"
-              tick={{ fontSize: 12 }}
-              interval="preserveStartEnd"
-            />
-            <YAxis />
-            <Tooltip />
-            <Legend />
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+              data={chartData}
+              margin={{
+                top: 10,
+                right: 20,
+                left: 20,
+                bottom: 10,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
 
-            <Line
-              type="monotone"
-              dataKey="masuk"
-              stroke="#2563eb"
-              strokeWidth={3}
-              name="Surat Masuk"
-              isAnimationActive={false}
-            />
+              <XAxis
+                dataKey="tanggal"
+                tick={{
+                  fontSize: 12,
+                }}
+                interval="preserveStartEnd"
+              />
 
-            <Line
-              type="monotone"
-              dataKey="keluar"
-              stroke="#16a34a"
-              strokeWidth={3}
-              name="Surat Keluar"
-              isAnimationActive={false}
-            />
-          </LineChart>
+              <YAxis />
+
+              <Tooltip />
+
+              <Legend />
+
+              {/* SURAT MASUK */}
+
+              <Line
+                type="monotone"
+                dataKey="masuk"
+                stroke="#2563eb"
+                strokeWidth={3}
+                name="Surat Masuk"
+                isAnimationActive={false}
+              />
+
+              {/* SURAT KELUAR */}
+
+              <Line
+                type="monotone"
+                dataKey="keluar"
+                stroke="#16a34a"
+                strokeWidth={3}
+                name="Surat Keluar"
+                isAnimationActive={false}
+              />
+            </LineChart>
           </ResponsiveContainer>
         </div>
-        <footer className="footer">
-          © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
-        </footer>
       </div>
+
+      {/* FOOTER */}
+
+      <footer className="footer">
+        © 2026 E-Arsip Balai Pemasyarakatan Kelas II Amuntai
+      </footer>
     </DashboardLayout>
   );
 }

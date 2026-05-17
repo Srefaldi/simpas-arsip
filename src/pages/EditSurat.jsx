@@ -9,7 +9,10 @@ const API_URL =
 
 export default function EditSurat() {
   const { state } = useLocation();
+
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
 
   if (!state) {
     return <h2 style={{ padding: 20 }}>Data tidak ditemukan</h2>;
@@ -19,57 +22,123 @@ export default function EditSurat() {
 
   const [form, setForm] = useState({
     nomorSurat: data.Nomor_Surat || "",
+
     perihal: data.Perihal || "",
+
     instansi: data.Instansi || "",
+
     klasifikasi: data.Klasifikasi || "",
+
     kategoriSurat: data.Kategori_Surat || "",
+
     rowNumber: data.rowNumber,
+
     file: null,
+
     fileName: "",
+
     linkFile: data.Link_File || data.File || "",
   });
 
+  // =========================
+  // HANDLE CHANGE
+  // =========================
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  // =========================
+  // HANDLE FILE
+  // =========================
 
   const handleFile = (e) => {
     const file = e.target.files[0];
+
     if (!file) return;
 
     const reader = new FileReader();
+
     reader.readAsDataURL(file);
 
     reader.onload = () => {
       setForm({
         ...form,
+
         file: reader.result,
+
         fileName: file.name,
       });
     };
   };
 
+  // =========================
+  // UPDATE
+  // =========================
+
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    await fetch(API_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify({
-        action: "update",
-        jenisSurat: jenis === "SuratMasuk" ? "Masuk" : "Keluar",
-        ...form,
-        kategoriSurat: form.kategoriSurat,
-      }),
-    });
+    try {
+      setLoading(true);
 
-    Swal.fire("Berhasil", "Data berhasil diupdate", "success");
+      await fetch(API_URL, {
+        method: "POST",
 
-    navigate(jenis === "SuratMasuk" ? "/data/masuk" : "/data/keluar");
+        mode: "no-cors",
+
+        body: JSON.stringify({
+          action: "update",
+
+          jenisSurat: jenis === "SuratMasuk" ? "Masuk" : "Keluar",
+
+          ...form,
+
+          kategoriSurat: form.kategoriSurat,
+        }),
+      });
+
+      setTimeout(
+        async () => {
+          setLoading(false);
+
+          await Swal.fire("Berhasil", "Data berhasil diupdate", "success");
+
+          navigate(jenis === "SuratMasuk" ? "/data/masuk" : "/data/keluar");
+        },
+
+        1000,
+      );
+    } catch (err) {
+      console.log(err);
+
+      setLoading(false);
+
+      Swal.fire("Error", "Gagal update data", "error");
+    }
   };
 
   return (
     <DashboardLayout>
+      {/* =========================
+          LOADING SCREEN
+      ========================= */}
+
+      {loading && (
+        <div className="edit-loading">
+          <div className="edit-loading-box">
+            <div className="edit-spinner"></div>
+
+            <h3>Mengupdate Data</h3>
+
+            <p>Mohon tunggu sebentar...</p>
+          </div>
+        </div>
+      )}
+
       <div className="edit-wrapper">
         <div className="edit-card">
           <h2 className="edit-title">
@@ -77,28 +146,36 @@ export default function EditSurat() {
           </h2>
 
           <form onSubmit={handleUpdate}>
+            {/* NOMOR */}
             <label>Nomor Surat</label>
+
             <input
               name="nomorSurat"
               value={form.nomorSurat}
               onChange={handleChange}
             />
 
+            {/* PERIHAL */}
             <label>Perihal</label>
+
             <input
               name="perihal"
               value={form.perihal}
               onChange={handleChange}
             />
 
+            {/* INSTANSI */}
             <label>Instansi</label>
+
             <input
               name="instansi"
               value={form.instansi}
               onChange={handleChange}
             />
 
+            {/* KLASIFIKASI */}
             <label>Klasifikasi</label>
+
             <select
               name="klasifikasi"
               value={form.klasifikasi}
@@ -113,6 +190,7 @@ export default function EditSurat() {
               ))}
             </select>
 
+            {/* KATEGORI */}
             {jenis === "SuratMasuk" && (
               <>
                 <label>Kategori Surat</label>
@@ -123,11 +201,17 @@ export default function EditSurat() {
                   onChange={handleChange}
                 >
                   <option value="">Pilih Kategori</option>
+
                   <option value="PK">PK</option>
+
                   <option value="BKD">BKD</option>
+
                   <option value="BKA">BKA</option>
+
                   <option value="TU">TU</option>
+
                   <option value="Kepegawaian">Kepegawaian</option>
+
                   <option value="Keuangan">Keuangan</option>
                 </select>
               </>
@@ -153,8 +237,10 @@ export default function EditSurat() {
 
             {/* FILE BARU */}
             <label>Ganti File (Opsional)</label>
+
             <input type="file" onChange={handleFile} />
 
+            {/* BUTTON */}
             <div className="btn-group">
               <button className="btn-primary">Update</button>
 
