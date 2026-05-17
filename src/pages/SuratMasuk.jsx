@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
+  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
 
 export default function SuratMasuk() {
   const navigate = useNavigate();
@@ -206,7 +206,6 @@ export default function SuratMasuk() {
                 required
               >
                 <option value="">Pilih Kategori</option>
-
                 <option value="PK">PK</option>
                 <option value="BKD">BKD</option>
                 <option value="BKA">BKA</option>

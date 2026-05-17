@@ -3,11 +3,13 @@ import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "../components/layout/DashboardLayout";
+
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
+  "https://script.google.com/macros/s/AKfycbyVXt_nByDd5CFEO-KNDFgLJp18f9ob0Z2iHjjSXm83H8mIGH3hKpMjIhvxS-gMYToTOQ/exec";
 
 export default function DataSurat() {
   const location = useLocation();
+
   const navigate = useNavigate();
 
   const query = new URLSearchParams(location.search);
@@ -53,7 +55,6 @@ export default function DataSurat() {
   }, [jenis]);
 
   // DELETE
-  // DELETE
   const handleDelete = async (rowNumber) => {
     const confirm = await Swal.fire({
       title: "Hapus data?",
@@ -82,6 +83,7 @@ export default function DataSurat() {
         await fetch(API_URL, {
           method: "POST",
           mode: "no-cors",
+
           body: JSON.stringify({
             action: "delete",
             jenisSurat: jenis === "SuratMasuk" ? "Masuk" : "Keluar",
@@ -129,7 +131,6 @@ export default function DataSurat() {
       (item.Nomor_Surat || "").toString().toLowerCase().includes(keyword) ||
       (item.Perihal || "").toString().toLowerCase().includes(keyword) ||
       (item.Instansi || "").toString().toLowerCase().includes(keyword) ||
-      (item.Klasifikasi || "").toString().toLowerCase().includes(keyword) ||
       (item.Kategori_Surat || "").toString().toLowerCase().includes(keyword)
     );
   });
@@ -195,7 +196,6 @@ export default function DataSurat() {
                 <th>Nomor Surat</th>
                 <th>Perihal</th>
                 <th>Instansi</th>
-                <th>Klasifikasi</th>
 
                 {jenis === "SuratMasuk" && <th>Kategori</th>}
 
@@ -212,14 +212,17 @@ export default function DataSurat() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="7" className="empty">
+                  <td
+                    colSpan={jenis === "SuratMasuk" ? 6 : 5}
+                    className="empty"
+                  >
                     Memuat Data...
                   </td>
                 </tr>
               ) : filteredData.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={jenis === "SuratMasuk" ? 7 : 6}
+                    colSpan={jenis === "SuratMasuk" ? 6 : 5}
                     className="empty"
                   >
                     Tidak ada data
@@ -236,12 +239,6 @@ export default function DataSurat() {
 
                     <td>
                       <span className="badge">{item.Instansi}</span>
-                    </td>
-
-                    <td>
-                      <span className="badge klasifikasi-badge">
-                        {item.Klasifikasi || "-"}
-                      </span>
                     </td>
 
                     {jenis === "SuratMasuk" && (
