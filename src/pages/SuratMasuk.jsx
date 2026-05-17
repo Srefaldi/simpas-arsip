@@ -211,6 +211,8 @@ export default function SuratMasuk() {
                 <option value="BKD">BKD</option>
                 <option value="BKA">BKA</option>
                 <option value="TU">TU</option>
+                <option value="SDP">SDP</option>
+                <option value="BMN">BMN</option>
                 <option value="Kepegawaian">Kepegawaian</option>
                 <option value="Keuangan">Keuangan</option>
               </select>

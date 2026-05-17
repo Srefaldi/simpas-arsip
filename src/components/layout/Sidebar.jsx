@@ -46,6 +46,16 @@ export default function Sidebar({ closeSidebar }) {
     },
 
     {
+      name: "SDP",
+      path: "/data/masuk?kategori=SDP",
+    },
+
+    {
+      name: "BMN",
+      path: "/data/masuk?kategori=BMN",
+    },
+
+    {
       name: "Kepegawaian",
       path: "/data/masuk?kategori=Kepegawaian",
     },
@@ -58,6 +68,7 @@ export default function Sidebar({ closeSidebar }) {
 
   return (
     <>
+      {/* LOGO */}
       <div className="logo-box">
         <div className="logo-bg">
           <img src="/kemenimipas.png" alt="kemenimipas" />
@@ -87,23 +98,25 @@ export default function Sidebar({ closeSidebar }) {
       </div>
 
       {/* KATEGORI */}
-      <div className="kategori-box">
+      <div className="kategori-wrapper">
         <p className="kategori-title">Kategori Surat</p>
 
-        {kategoriMenu.map((item, i) => (
-          <Link
-            key={i}
-            to={item.path}
-            onClick={closeSidebar}
-            className={
-              location.pathname + location.search === item.path
-                ? "menu-item small active"
-                : "menu-item small"
-            }
-          >
-            {item.name}
-          </Link>
-        ))}
+        <div className="kategori-scroll">
+          {kategoriMenu.map((item, i) => (
+            <Link
+              key={i}
+              to={item.path}
+              onClick={closeSidebar}
+              className={
+                location.pathname + location.search === item.path
+                  ? "menu-item small active"
+                  : "menu-item small"
+              }
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
