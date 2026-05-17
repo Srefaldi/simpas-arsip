@@ -5,7 +5,7 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import klasifikasi from "../data/data_klasifikasi.json";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
+  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
 
 export default function EditSurat() {
   const { state } = useLocation();

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "../components/layout/DashboardLayout";
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbwQzk-r9vNG0UsqeN-4GBVX7O61n-xO91AEtrHXRMRk94w_l0I-h7MMX_-_N7mV4dngQA/exec";
+  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
 
 export default function DataSurat() {
   const location = useLocation();
@@ -53,27 +53,62 @@ export default function DataSurat() {
   }, [jenis]);
 
   // DELETE
+  // DELETE
   const handleDelete = async (rowNumber) => {
     const confirm = await Swal.fire({
       title: "Hapus data?",
+      text: "Data yang dihapus tidak dapat dikembalikan",
       icon: "warning",
       showCancelButton: true,
+      confirmButtonText: "Ya, Hapus",
+      cancelButtonText: "Batal",
     });
 
     if (confirm.isConfirmed) {
-      await fetch(API_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          action: "delete",
-          jenisSurat: jenis === "SuratMasuk" ? "Masuk" : "Keluar",
-          rowNumber,
-        }),
+      // LOADING SCREEN
+      Swal.fire({
+        title: "Menghapus Data...",
+        text: "Mohon tunggu sebentar",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+
+        didOpen: () => {
+          Swal.showLoading();
+        },
       });
 
-      Swal.fire("Berhasil", "Data dihapus", "success");
+      try {
+        await fetch(API_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify({
+            action: "delete",
+            jenisSurat: jenis === "SuratMasuk" ? "Masuk" : "Keluar",
+            rowNumber,
+          }),
+        });
 
-      fetchData();
+        // REFRESH DATA
+        await fetchData();
+
+        // SUCCESS
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil",
+          text: "Data berhasil dihapus",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      } catch (err) {
+        console.log(err);
+
+        Swal.fire({
+          icon: "error",
+          title: "Gagal",
+          text: "Terjadi kesalahan saat menghapus data",
+        });
+      }
     }
   };
 
@@ -88,35 +123,16 @@ export default function DataSurat() {
 
   // SEARCH
   const filteredData = kategoriData.filter((item) => {
-  const keyword = search.toLowerCase();
+    const keyword = search.toLowerCase();
 
-  return (
-    (item.Nomor_Surat || "")
-      .toString()
-      .toLowerCase()
-      .includes(keyword) ||
-
-    (item.Perihal || "")
-      .toString()
-      .toLowerCase()
-      .includes(keyword) ||
-
-    (item.Instansi || "")
-      .toString()
-      .toLowerCase()
-      .includes(keyword) ||
-
-    (item.Klasifikasi || "")
-      .toString()
-      .toLowerCase()
-      .includes(keyword) ||
-
-    (item.Kategori_Surat || "")
-      .toString()
-      .toLowerCase()
-      .includes(keyword)
-  );
-});
+    return (
+      (item.Nomor_Surat || "").toString().toLowerCase().includes(keyword) ||
+      (item.Perihal || "").toString().toLowerCase().includes(keyword) ||
+      (item.Instansi || "").toString().toLowerCase().includes(keyword) ||
+      (item.Klasifikasi || "").toString().toLowerCase().includes(keyword) ||
+      (item.Kategori_Surat || "").toString().toLowerCase().includes(keyword)
+    );
+  });
 
   // PAGINATION
   const lastIndex = currentPage * dataPerPage;
