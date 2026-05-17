@@ -46,14 +46,12 @@ export default function DetailSurat() {
             <p>{data.Klasifikasi || "-"}</p>
           </div>
 
-          {/* KATEGORI */}
-          {jenis === "SuratMasuk" && (
-            <div className="detail-item">
-              <label>Kategori Surat</label>
-              <p>{data.Kategori_Surat || "-"}</p>
-            </div>
-          )}
-
+          {/* KATEGORI */}          
+          <div className="detail-item">
+            <label>Kategori Surat</label>
+            <p>{data.Kategori_Surat || "-"}</p>
+          </div>
+          
           {/* FILE */}
           <div className="detail-item">
             <label>File Dokumen</label>

@@ -197,6 +197,10 @@ export default function DataSurat() {
                 <th>Perihal</th>
                 <th>Instansi</th>
 
+                {/* KHUSUS SURAT KELUAR */}
+                {jenis === "SuratKeluar" && <th>Klasifikasi</th>}
+
+                {/* KATEGORI KHUSUS SURAT MASUK */}
                 {jenis === "SuratMasuk" && <th>Kategori</th>}
 
                 <th
@@ -213,7 +217,7 @@ export default function DataSurat() {
               {loading ? (
                 <tr>
                   <td
-                    colSpan={jenis === "SuratMasuk" ? 6 : 5}
+                    colSpan={6}
                     className="empty"
                   >
                     Memuat Data...
@@ -222,7 +226,7 @@ export default function DataSurat() {
               ) : filteredData.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={jenis === "SuratMasuk" ? 6 : 5}
+                    colSpan={6}
                     className="empty"
                   >
                     Tidak ada data
@@ -233,14 +237,28 @@ export default function DataSurat() {
                   <tr key={i}>
                     <td>{firstIndex + i + 1}</td>
 
-                    <td className="nomor">{item.Nomor_Surat || "-"}</td>
-
-                    <td>{item.Perihal}</td>
-
-                    <td>
-                      <span className="badge">{item.Instansi}</span>
+                    <td className="nomor">
+                      {item.Nomor_Surat || "-"}
                     </td>
 
+                    <td>{item.Perihal || "-"}</td>
+
+                    <td>
+                      <span className="badge">
+                        {item.Instansi || "-"}
+                      </span>
+                    </td>
+
+                    {/* KHUSUS SURAT KELUAR */}
+                    {jenis === "SuratKeluar" && (
+                      <td>
+                        <span className="badge">
+                          {item.Klasifikasi || "-"}
+                        </span>
+                      </td>
+                    )}
+
+                    {/* KHUSUS SURAT MASUK */}
                     {jenis === "SuratMasuk" && (
                       <td>
                         <span className="badge">
@@ -251,6 +269,7 @@ export default function DataSurat() {
 
                     <td>
                       <div className="aksi">
+
                         {/* DETAIL */}
                         <button
                           className="btn-icon view"
@@ -284,10 +303,13 @@ export default function DataSurat() {
                         {/* DELETE */}
                         <button
                           className="btn-icon delete"
-                          onClick={() => handleDelete(item.rowNumber)}
+                          onClick={() =>
+                            handleDelete(item.rowNumber)
+                          }
                         >
                           🗑
                         </button>
+
                       </div>
                     </td>
                   </tr>

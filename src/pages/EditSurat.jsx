@@ -5,7 +5,7 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import klasifikasi from "../data/data_klasifikasi.json";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
+  "https://script.google.com/macros/s/AKfycbyVXt_nByDd5CFEO-KNDFgLJp18f9ob0Z2iHjjSXm83H8mIGH3hKpMjIhvxS-gMYToTOQ/exec";
 
 export default function EditSurat() {
   const { state } = useLocation();
@@ -191,8 +191,6 @@ export default function EditSurat() {
             </select>
 
             {/* KATEGORI */}
-            {jenis === "SuratMasuk" && (
-              <>
                 <label>Kategori Surat</label>
 
                 <select
@@ -210,12 +208,14 @@ export default function EditSurat() {
 
                   <option value="TU">TU</option>
 
+                  <option value="SDP">SDP</option>
+
+                  <option value="BMN">BMN</option>
+
                   <option value="Kepegawaian">Kepegawaian</option>
 
                   <option value="Keuangan">Keuangan</option>
                 </select>
-              </>
-            )}
 
             {/* FILE LAMA */}
             <label>File Lama</label>

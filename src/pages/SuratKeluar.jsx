@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzFFKXlD3hAq61Od0YYaOeLaO0GLUvgXqT23rkczHPEQfT5gf48hCIEGgzgN8x_j5TZag/exec";
+  "https://script.google.com/macros/s/AKfycbyVXt_nByDd5CFEO-KNDFgLJp18f9ob0Z2iHjjSXm83H8mIGH3hKpMjIhvxS-gMYToTOQ/exec";
 
 export default function SuratKeluar() {
   const navigate = useNavigate();
